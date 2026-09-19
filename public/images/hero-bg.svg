@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#2C2419"/>
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#grad)"/>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1208;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#2C2419;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#3D3320;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <!-- Decorative elements suggesting a warm Kerala interior -->
+  <rect x="200" y="100" width="600" height="880" fill="#382C18" rx="2"/>
+  <rect x="850" y="50" width="900" height="500" fill="#2E2316" rx="2"/>
+  <rect x="850" y="580" width="420" height="450" fill="#2E2316" rx="2"/>
+  <rect x="1290" y="580" width="460" height="450" fill="#332718" rx="2"/>
+  <!-- Gold accent line -->
+  <rect x="200" y="100" width="4" height="200" fill="#D6A33A"/>
+  <!-- Text overlay -->
+  <text x="960" y="520" font-family="Georgia, serif" font-size="72" fill="#D6A33A" text-anchor="middle" opacity="0.6">Mother's Homestay</text>
+  <text x="960" y="590" font-family="Arial, sans-serif" font-size="18" fill="#FFFDF7" text-anchor="middle" opacity="0.4" letter-spacing="8">KERALA · INDIA</text>
+  <text x="960" y="640" font-family="Arial, sans-serif" font-size="12" fill="#8A7560" text-anchor="middle" opacity="0.5">Replace with your property photography</text>
+</svg>

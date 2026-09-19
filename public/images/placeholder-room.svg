@@ -1,0 +1,5 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#E8DFC8"/>
+  <text x="400" y="295" font-family="Georgia,serif" font-size="22" fill="#6D665A" text-anchor="middle">Room Image Placeholder</text>
+  <text x="400" y="330" font-family="Arial" font-size="11" fill="#A09A8E" text-anchor="middle">Replace with photography</text>
+</svg>
