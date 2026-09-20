@@ -48,7 +48,7 @@ export default function RoomCard({ room }: RoomCardProps) {
 
       {/* Card footer */}
       <div className="pt-4 pb-2">
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex flex-col gap-4">
           <div>
             <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#D6A33A] mb-1">
               {room.id}
@@ -60,12 +60,6 @@ export default function RoomCard({ room }: RoomCardProps) {
               {room.shortDescription}
             </p>
           </div>
-          <span
-            className="font-sans text-xs text-[#D6A33A] mt-1 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
-            aria-hidden="true"
-          >
-            →
-          </span>
         </div>
 
         {/* Meta row */}
@@ -85,6 +79,14 @@ export default function RoomCard({ room }: RoomCardProps) {
               </span>
             </>
           )}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-5">
+          <span className="inline-flex items-center gap-2 border border-[#E8DFC8] text-[#24211C] font-sans text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 group-hover:border-[#D6A33A] group-hover:bg-[#D6A33A] transition-all duration-300">
+            View Details
+            <span className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true">→</span>
+          </span>
         </div>
       </div>
     </Link>
