@@ -25,7 +25,7 @@ export default function LocationSection() {
                 Way Home
               </h2>
               <p className="font-sans text-sm text-[#6D665A] leading-relaxed mb-6 max-w-sm">
-                Situated in the heart of Kerala, Mother&apos;s Homestay is easily accessible and
+                Situated in the heart of Kerala, Mother\u0026apos;s Ayurveda is easily accessible and
                 close to the region&apos;s most celebrated attractions.
               </p>
 
@@ -65,7 +65,7 @@ export default function LocationSection() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Mother's Homestay location on Google Maps"
+                  title="Mother's Ayurveda location on Google Maps"
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center h-full gap-4 text-center px-8">

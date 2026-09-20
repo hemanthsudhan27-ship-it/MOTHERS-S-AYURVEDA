@@ -42,30 +42,30 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-20 items-start">
           {/* Left — image composition */}
           <ScrollReveal direction="left" delay={0.1}>
-            <div className="relative">
+            <div className="relative pb-10 lg:pb-0">
               {/* Primary large image */}
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[4/3] lg:aspect-[4/5] overflow-hidden">
                 <Image
                   src="/images/amenities/8e01c837-1279-4ac7-896b-b75f5c86e76d.jpg"
-                  alt="The warm, welcoming interior of Mother's Homestay in Kerala"
+                  alt="The warm, welcoming interior of Mother's Ayurveda in Kerala"
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 600px"
                 />
               </div>
-              {/* Secondary inset image */}
-              <div className="absolute -bottom-8 -right-6 lg:-right-10 w-2/5 aspect-[3/4] overflow-hidden border-4 border-[#FFFDF7]">
+              {/* Secondary inset image — desktop only to avoid overflow */}
+              <div className="hidden lg:block absolute -bottom-8 -right-10 w-2/5 aspect-[3/4] overflow-hidden border-4 border-[#FFFDF7]">
                 <Image
                   src="/images/amenities/33c8f677-bb0a-4840-9ff9-ff1a20cdc958.jpg"
-                  alt="Interior details at Mother's Homestay — thoughtfully curated spaces"
+                  alt="Interior details at Mother's Ayurveda — thoughtfully curated spaces"
                   fill
                   className="object-cover object-center"
                   sizes="200px"
                 />
               </div>
-              {/* Gold vertical accent */}
+              {/* Gold vertical accent — desktop only */}
               <div
-                className="absolute -left-4 top-12 w-px h-20 bg-[#D6A33A]"
+                className="hidden lg:block absolute -left-4 top-12 w-px h-20 bg-[#D6A33A]"
                 aria-hidden="true"
               />
             </div>
@@ -75,7 +75,7 @@ export default function AboutSection() {
           <ScrollReveal direction="right" delay={0.15}>
             <div className="pt-0 lg:pt-8">
               <p className="font-sans text-sm lg:text-base leading-relaxed text-[#6D665A] mb-6">
-                Mother&apos;s Homestay was born from a simple idea: that genuine hospitality begins
+                Mother\u0026apos;s Ayurveda was born from a simple idea: that genuine hospitality begins
                 at home. Our family has welcomed guests from across India and around the world,
                 offering not just a comfortable room, but a real sense of belonging.
               </p>

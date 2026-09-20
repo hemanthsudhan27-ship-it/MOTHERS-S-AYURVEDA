@@ -104,7 +104,7 @@ export default async function RoomPage({ params }: RoomPageProps) {
             <div className="relative aspect-[16/9] lg:aspect-[21/9] overflow-hidden bg-[#E8DFC8]">
               <Image
                 src={room.images[0] || "/images/placeholder-room.svg"}
-                alt={`${room.name} at Mother's Homestay — main view`}
+                alt={`${room.name} at Mother's Ayurveda — main view`}
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1400px) 100vw, 1400px"

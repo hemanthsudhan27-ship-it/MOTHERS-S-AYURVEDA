@@ -32,7 +32,7 @@ export default function Hero() {
     <section
       ref={ref}
       className="relative h-[100svh] min-h-[600px] overflow-hidden"
-      aria-label="Hero — Mother's Homestay"
+      aria-label="Hero — Mother's Ayurveda"
     >
       {/* Background image with parallax */}
       <motion.div
@@ -44,7 +44,7 @@ export default function Hero() {
       >
         <Image
           src="/images/amenities/2cb00dbe-9146-47a2-be7d-1c8a25e50835.jpg"
-          alt="Mother's Homestay — a warm and welcoming Kerala homestay"
+          alt="Mother's Ayurveda — a warm and welcoming Kerala homestay"
           fill
           priority
           className="object-cover object-center"
@@ -71,7 +71,7 @@ export default function Hero() {
             variants={lineVariants}
             className="font-sans text-[10px] tracking-[0.35em] uppercase text-[#D6A33A] mb-5"
           >
-            Mother&apos;s Homestay &nbsp;·&nbsp; Kerala, India
+            Mother\u0026apos;s Ayurveda &nbsp;·&nbsp; Kerala, India
           </motion.p>
 
           {/* Main heading */}

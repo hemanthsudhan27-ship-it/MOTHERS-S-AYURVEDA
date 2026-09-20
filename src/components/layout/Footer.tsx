@@ -15,16 +15,16 @@ export default function Footer() {
     <footer className="bg-[#24211C] text-[#C8BFB0]" aria-label="Site footer">
       {/* Main Footer */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-16 pb-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_auto_auto] gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_auto_auto_auto] gap-10 lg:gap-16">
           {/* Brand */}
           <div className="max-w-xs">
-            <Link href="/" className="block mb-4" aria-label="Mother's Homestay — Home">
+            <Link href="/" className="block mb-4" aria-label="Mother's Ayurveda — Home">
               <div className="flex flex-col leading-none">
                 <span className="font-serif text-4xl text-white tracking-tight">
                   Mother&apos;s
                 </span>
                 <span className="font-serif text-4xl text-[#D6A33A] tracking-tight -mt-1">
-                  Homestay
+                  Ayurveda
                 </span>
               </div>
             </Link>
@@ -40,7 +40,7 @@ export default function Footer() {
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Mother's Homestay on Instagram"
+                aria-label="Mother's Ayurveda on Instagram"
                 className="text-[#6D665A] hover:text-[#D6A33A] transition-colors duration-300"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -51,7 +51,7 @@ export default function Footer() {
                 href={`https://wa.me/${siteConfig.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Chat with Mother's Homestay on WhatsApp"
+                aria-label="Chat with Mother's Ayurveda on WhatsApp"
                 className="text-[#6D665A] hover:text-[#D6A33A] transition-colors duration-300"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -62,7 +62,7 @@ export default function Footer() {
                 href={siteConfig.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Mother's Homestay on Google Maps"
+                aria-label="Mother's Ayurveda on Google Maps"
                 className="text-[#6D665A] hover:text-[#D6A33A] transition-colors duration-300"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -153,7 +153,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10 max-w-[1400px] mx-auto px-6 lg:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
         <p className="font-sans text-xs text-[#4A4438]">
-          &copy; {year} Mother&apos;s Homestay. All rights reserved.
+          &copy; {year} Mother\u0026apos;s Ayurveda. All rights reserved.
         </p>
         <div className="flex items-center gap-6">
           <Link

@@ -9,9 +9,9 @@ import LocationSection from "@/components/sections/LocationSection";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "Mother's Homestay | Comfortable Stay in Kerala, India",
+  title: "Mother's Ayurveda | Comfortable Stay in Kerala, India",
   description:
-    "Experience genuine Kerala hospitality at Mother's Homestay. Warm, comfortable and thoughtfully prepared rooms in the heart of Kerala, India.",
+    "Experience genuine Kerala hospitality at Mother's Ayurveda. Warm, comfortable and thoughtfully prepared rooms in the heart of Kerala, India.",
 };
 
 export default function HomePage() {

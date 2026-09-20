@@ -5,32 +5,32 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 const galleryImages = [
   {
     src: "/images/amenities/1c66f5c5-b968-4de1-a803-ecfe3fb9e955.jpg",
-    alt: "A serene room interior at Mother's Homestay with warm natural lighting",
+    alt: "A serene room interior at Mother's Ayurveda with warm natural lighting",
     span: "row-span-2",
   },
   {
     src: "/images/amenities/309e0145-ce9e-493b-b611-28424de40f13.jpg",
-    alt: "The lush green surroundings of Mother's Homestay property",
+    alt: "The lush green surroundings of Mother's Ayurveda property",
     span: "",
   },
   {
     src: "/images/amenities/2f093924-3ac2-4538-87c5-68c1f69e2051.jpg",
-    alt: "Comfortable amenities and spaces at Mother's Homestay",
+    alt: "Comfortable amenities and spaces at Mother's Ayurveda",
     span: "",
   },
   {
     src: "/images/amenities/6ce5db30-e99b-44eb-a228-869100c28d81.jpg",
-    alt: "Beautiful common area at Mother's Homestay Kerala",
+    alt: "Beautiful common area at Mother's Ayurveda Kerala",
     span: "row-span-2",
   },
   {
     src: "/images/amenities/c598c459-33ae-4eb8-b98e-b448a762ae8b.jpg",
-    alt: "Exterior view and grounds of Mother's Homestay",
+    alt: "Exterior view and grounds of Mother's Ayurveda",
     span: "",
   },
   {
     src: "/images/amenities/f5352f8c-e976-4b12-842b-4bef62e705ee.jpg",
-    alt: "Thoughtfully curated interior details at Mother's Homestay",
+    alt: "Thoughtfully curated interior details at Mother's Ayurveda",
     span: "",
   },
 ];

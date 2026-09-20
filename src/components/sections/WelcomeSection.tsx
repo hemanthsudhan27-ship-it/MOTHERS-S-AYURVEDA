@@ -9,25 +9,25 @@ export default function WelcomeSection() {
       aria-labelledby="welcome-heading"
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-[1fr_1.4fr_1fr] gap-10 lg:gap-16 items-center">
-          {/* Left — small image */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr_1fr] gap-8 lg:gap-16 items-center">
+          {/* Left — small image: shown 2nd on mobile (order-2), 1st on lg */}
           <ScrollReveal direction="left" delay={0.1}>
-            <div className="relative aspect-[3/4] lg:aspect-auto lg:h-[420px] rounded-none overflow-hidden">
+            <div className="relative aspect-[4/3] lg:aspect-auto lg:h-[420px] overflow-hidden order-2 lg:order-1">
               <Image
                 src="/images/amenities/993c30d1-78f1-4041-aac1-15a1d6f44dd4.jpg"
-                alt="A cosy corner inside Mother's Homestay showing warm interior details"
+                alt="A cosy corner inside Mother's Ayurveda showing warm interior details"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 350px"
               />
-              {/* Decorative gold accent */}
-              <div className="absolute bottom-0 left-0 w-px h-24 bg-[#D6A33A]" aria-hidden="true" />
+              {/* Decorative gold accent — desktop only */}
+              <div className="hidden lg:block absolute bottom-0 left-0 w-px h-24 bg-[#D6A33A]" aria-hidden="true" />
             </div>
           </ScrollReveal>
 
-          {/* Center — heading */}
+          {/* Center — heading: shown 1st on mobile (order-1), middle on lg */}
           <ScrollReveal direction="up" delay={0}>
-            <div className="flex flex-col items-start lg:items-center text-left lg:text-center">
+            <div className="flex flex-col items-start lg:items-center text-left lg:text-center order-1 lg:order-2">
               <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#D6A33A] mb-5">
                 Welcome to Mother&apos;s
               </p>
@@ -46,11 +46,11 @@ export default function WelcomeSection() {
             </div>
           </ScrollReveal>
 
-          {/* Right — description + CTA */}
+          {/* Right — description + CTA: shown 3rd on mobile (order-3) */}
           <ScrollReveal direction="right" delay={0.15}>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 order-3">
               <p className="font-sans text-sm lg:text-base leading-relaxed text-[#6D665A]">
-                Nestled in the heart of Kerala, Mother&apos;s Homestay offers a rare kind of
+                Nestled in the heart of Kerala, Mother\u0026apos;s Ayurveda offers a rare kind of
                 hospitality — one that feels personal, unhurried and genuinely warm. Every corner of
                 this home has been thoughtfully curated to help you rest, recharge and reconnect.
               </p>

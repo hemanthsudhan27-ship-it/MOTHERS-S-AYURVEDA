@@ -55,7 +55,7 @@ export default function MobileMenu({ id, onClose, navLinks, pathname }: MobileMe
           <Link href="/" onClick={onClose} className="flex flex-col leading-none">
             <span className="font-serif text-xl text-[#24211C]">Mother&apos;s</span>
             <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#6D665A]">
-              Homestay
+              Ayurveda
             </span>
           </Link>
           <button

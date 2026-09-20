@@ -63,7 +63,7 @@ export default function WhyStaySection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
           {features.map((f, i) => (
             <ScrollReveal key={f.id} direction="up" delay={i * 0.08}>
-              <div className="border-t border-white/10 pt-8 pr-0 lg:pr-8 pb-8">
+              <div className="border-t border-white/10 pt-8 pr-0 sm:pr-8 pb-8">
                 <span className="font-sans text-xs text-[#D6A33A] tracking-widest mb-4 block">
                   {f.id}
                 </span>

@@ -44,7 +44,7 @@ export default function Navbar() {
           <Link
             href="/"
             className="flex flex-col leading-none group"
-            aria-label="Mother's Homestay — Home"
+            aria-label="Mother's Ayurveda — Home"
           >
             <span
               className={`font-serif text-xl lg:text-2xl tracking-tight transition-colors duration-500 ${
@@ -58,7 +58,7 @@ export default function Navbar() {
                 isTransparent ? "text-white/70" : "text-[#6D665A]"
               }`}
             >
-              Homestay
+              Ayurveda
             </span>
           </Link>
 

@@ -12,7 +12,7 @@ export default function FinalCTA() {
       <div className="absolute inset-0">
         <Image
           src="/images/amenities/6e1a2035-55f4-44de-a95a-6a9a7d2a3070.jpg"
-          alt="A beautiful view from Mother's Homestay in Kerala"
+          alt="A beautiful view from Mother's Ayurveda in Kerala"
           fill
           className="object-cover object-center opacity-30"
           sizes="100vw"

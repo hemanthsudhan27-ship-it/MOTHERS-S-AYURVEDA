@@ -4,9 +4,9 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import { siteConfig } from "@/data/config";
 
 export const metadata: Metadata = {
-  title: "Plan Your Stay | Mother's Homestay Kerala",
+  title: "Plan Your Stay | Mother's Ayurveda Kerala",
   description:
-    "Enquire about availability at Mother's Homestay. Fill in your details and we'll get back to you promptly via WhatsApp.",
+    "Enquire about availability at Mother's Ayurveda. Fill in your details and we'll get back to you promptly via WhatsApp.",
   alternates: { canonical: "/booking" },
 };
 

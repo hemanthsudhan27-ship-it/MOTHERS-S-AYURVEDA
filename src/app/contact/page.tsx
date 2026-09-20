@@ -6,9 +6,9 @@ import LocationSection from "@/components/sections/LocationSection";
 import { siteConfig } from "@/data/config";
 
 export const metadata: Metadata = {
-  title: "Contact | Mother's Homestay Kerala",
+  title: "Contact | Mother's Ayurveda Kerala",
   description:
-    "Get in touch with Mother's Homestay. Call, WhatsApp or email us — we'd love to hear from you.",
+    "Get in touch with Mother's Ayurveda. Call, WhatsApp or email us — we'd love to hear from you.",
   alternates: { canonical: "/contact" },
 };
 
@@ -46,7 +46,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-[#E8DFC8]">
             {/* Phone */}
             <ScrollReveal direction="up">
-              <div className="pt-10 pr-10 pb-10">
+              <div className="pt-10 pb-10 pr-0 sm:pr-10">
                 <div className="w-10 h-10 border border-[#D6A33A] flex items-center justify-center mb-6">
                   <svg
                     className="w-4 h-4 text-[#D6A33A]"
@@ -73,7 +73,7 @@ export default function ContactPage() {
 
             {/* WhatsApp */}
             <ScrollReveal direction="up" delay={0.08}>
-              <div className="pt-10 pr-10 pb-10 border-t sm:border-t-0 sm:border-l border-[#E8DFC8]">
+              <div className="pt-10 pb-10 pr-0 sm:pr-10 border-t sm:border-t-0 sm:border-l border-[#E8DFC8]">
                 <div className="sm:pl-10">
                   <div className="w-10 h-10 border border-[#25D366] flex items-center justify-center mb-6">
                     <svg
@@ -99,7 +99,7 @@ export default function ContactPage() {
 
             {/* Email */}
             <ScrollReveal direction="up" delay={0.16}>
-              <div className="pt-10 pr-10 pb-10 border-t lg:border-t-0 lg:border-l border-[#E8DFC8]">
+              <div className="pt-10 pb-10 pr-0 sm:pr-10 border-t lg:border-t-0 lg:border-l border-[#E8DFC8]">
                 <div className="lg:pl-10">
                   <div className="w-10 h-10 border border-[#D6A33A] flex items-center justify-center mb-6">
                     <svg

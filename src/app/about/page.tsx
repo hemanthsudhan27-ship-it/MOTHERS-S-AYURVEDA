@@ -6,9 +6,9 @@ import FinalCTA from "@/components/sections/FinalCTA";
 import GallerySection from "@/components/sections/GallerySection";
 
 export const metadata: Metadata = {
-  title: "About Mother's Homestay | Kerala, India",
+  title: "About Mother's Ayurveda | Kerala, India",
   description:
-    "Learn the story behind Mother's Homestay — a Kerala family home that has opened its doors to guests with warmth, care and genuine hospitality.",
+    "Learn the story behind Mother's Ayurveda — a Kerala family home that has opened its doors to guests with warmth, care and genuine hospitality.",
   alternates: { canonical: "/about" },
 };
 
@@ -51,7 +51,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src="/images/amenities/0fe29b00-db72-463a-abcd-bb5cb820be14.jpg"
-                  alt="Mother's Homestay — the welcoming entrance and facade of our Kerala property"
+                  alt="Mother's Ayurveda — the welcoming entrance and facade of our Kerala property"
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 700px"
@@ -80,7 +80,7 @@ export default function AboutPage() {
             </ScrollReveal>
             <ScrollReveal direction="right" delay={0.1}>
               <p className="font-sans text-sm lg:text-base text-[#6D665A] leading-relaxed mb-5">
-                Mother&apos;s Homestay began as a family home — a place where hospitality was
+                Mother\u0026apos;s Ayurveda began as a family home — a place where hospitality was
                 simply the natural way of life. Over the years, friends and travellers encouraged us
                 to open our doors to guests who were seeking something different: not a hotel, not a
                 resort, but a genuine home.

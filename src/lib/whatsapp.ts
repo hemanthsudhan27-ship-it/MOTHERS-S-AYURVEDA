@@ -16,7 +16,7 @@ export interface EnquiryData {
  * Generates a formatted WhatsApp enquiry message and opens WhatsApp web/app.
  */
 export function generateWhatsAppMessage(data: EnquiryData): void {
-  const message = `Hello Mother's Homestay,
+  const message = `Hello Mother's Ayurveda,
 
 I would like to enquire about availability.
 
@@ -47,7 +47,7 @@ Thank you.`;
  * Generates a pre-filled WhatsApp enquiry for a specific room (from room pages).
  */
 export function enquireAboutRoom(roomName: string): void {
-  const message = `Hello Mother's Homestay,
+  const message = `Hello Mother's Ayurveda,
 
 I am interested in the *${roomName}* and would like to enquire about availability.
 

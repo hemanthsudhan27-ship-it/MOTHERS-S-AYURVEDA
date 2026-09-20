@@ -5,9 +5,9 @@ import rooms from "@/data/rooms";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "Our Rooms | Mother's Homestay Kerala",
+  title: "Our Rooms | Mother's Ayurveda Kerala",
   description:
-    "Explore all rooms at Mother's Homestay — from our cosy Couple Room to our spacious Family Room. Each space thoughtfully prepared for your comfort.",
+    "Explore all rooms at Mother's Ayurveda — from our cosy Couple Room to our spacious Family Room. Each space thoughtfully prepared for your comfort.",
   alternates: { canonical: "/rooms" },
 };
 
@@ -33,7 +33,7 @@ export default function RoomsPage() {
               </div>
               <div className="lg:text-right">
                 <p className="font-sans text-sm lg:text-base text-[#6D665A] leading-relaxed max-w-md lg:ml-auto">
-                  Each room at Mother&apos;s Homestay has been designed with care — for the guest
+                  Each room at Mother\u0026apos;s Ayurveda has been designed with care — for the guest
                   who values comfort, quiet and genuine warmth over anything else.
                 </p>
               </div>
