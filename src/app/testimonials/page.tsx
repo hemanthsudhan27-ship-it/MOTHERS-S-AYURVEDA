@@ -4,9 +4,9 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "Guest Reviews | Mother's Ayurveda Kerala",
+  title: "Guest Reviews | Mother's Inn Homestay Kerala",
   description:
-    "Read what guests say about staying at Mother's Ayurveda in Kerala — clean, comfortable rooms, a peaceful garden, delicious homemade breakfast and warm, welcoming hosts.",
+    "Read what guests say about staying at Mother's Inn Homestay in Kerala — clean, comfortable rooms, a peaceful garden, delicious homemade breakfast and warm, welcoming hosts.",
   alternates: { canonical: "/testimonials" },
 };
 
@@ -63,12 +63,12 @@ function RatingBar({ aspect, score }: { aspect: string; score: number }) {
       <span className="font-sans text-xs text-[#6D665A] w-24 shrink-0 truncate">{aspect}</span>
       <div className="flex-1 h-px bg-[#E8DFC8] relative">
         <span
-          className="absolute top-1/2 -translate-y-1/2 left-0 h-[2px] bg-[#D6A33A] transition-all duration-700"
+          className="absolute top-1/2 -translate-y-1/2 left-0 h-[2px] bg-[#F3BA2F] transition-all duration-700"
           style={{ width: `${pct}%` }}
           aria-hidden="true"
         />
       </div>
-      <span className="font-sans text-xs text-[#D6A33A] w-8 text-right tabular-nums shrink-0">{score.toFixed(1)}</span>
+      <span className="font-sans text-xs text-[#F3BA2F] w-8 text-right tabular-nums shrink-0">{score.toFixed(1)}</span>
     </div>
   );
 }
@@ -79,7 +79,7 @@ function Stars({ count = 5 }: { count?: number }) {
       {Array.from({ length: 5 }, (_, i) => (
         <svg
           key={i}
-          className={`w-3.5 h-3.5 ${i < count ? "text-[#D6A33A]" : "text-[#E8DFC8]"}`}
+          className={`w-3.5 h-3.5 ${i < count ? "text-[#F3BA2F]" : "text-[#E8DFC8]"}`}
           viewBox="0 0 20 20"
           fill="currentColor"
           aria-hidden="true"
@@ -109,7 +109,7 @@ export default function TestimonialsPage() {
 
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
           <ScrollReveal direction="up">
-            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#D6A33A] mb-4">
+            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#F3BA2F] mb-4">
               Guest Voices
             </p>
             <h1 className="font-serif text-5xl lg:text-7xl xl:text-8xl leading-[1.02] text-[#24211C] mb-6 max-w-3xl">
@@ -119,7 +119,7 @@ export default function TestimonialsPage() {
             </h1>
             <p className="font-sans text-sm lg:text-base text-[#6D665A] max-w-md leading-relaxed">
               Honest words from the people who matter most — those who have stayed, rested and
-              experienced Mother\u0026apos;s Ayurveda for themselves.
+              experienced Mother\u0026apos;s Inn Homestay for themselves.
             </p>
           </ScrollReveal>
         </div>
@@ -137,7 +137,7 @@ export default function TestimonialsPage() {
             <ScrollReveal direction="left">
               <div className="space-y-10">
                 <div>
-                  <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#D6A33A] mb-6">
+                  <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#F3BA2F] mb-6">
                     Overall Rating
                   </p>
                   <div className="flex items-end gap-4 mb-3">
@@ -178,9 +178,9 @@ export default function TestimonialsPage() {
             <ScrollReveal direction="right" delay={0.1}>
               <div className="relative">
                 {/* decorative top accent line */}
-                <div className="w-12 h-[2px] bg-[#D6A33A] mb-10" aria-hidden="true" />
+                <div className="w-12 h-[2px] bg-[#F3BA2F] mb-10" aria-hidden="true" />
 
-                <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#D6A33A] mb-6">
+                <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#F3BA2F] mb-6">
                   General Impression
                 </p>
 
@@ -198,11 +198,11 @@ export default function TestimonialsPage() {
                 {/* Attribution */}
                 <footer className="flex items-start gap-4">
                   <div
-                    className="w-10 h-10 rounded-full bg-[#D6A33A]/20 border border-[#D6A33A]/30 flex items-center justify-center shrink-0"
+                    className="w-10 h-10 rounded-full bg-[#F3BA2F]/20 border border-[#F3BA2F]/30 flex items-center justify-center shrink-0"
                     aria-hidden="true"
                   >
                     <svg
-                      className="w-5 h-5 text-[#D6A33A]"
+                      className="w-5 h-5 text-[#F3BA2F]"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -247,7 +247,7 @@ export default function TestimonialsPage() {
           <ScrollReveal direction="up">
             <div className="flex items-end justify-between gap-6 mb-14 flex-wrap">
               <div>
-                <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#D6A33A] mb-4">
+                <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#F3BA2F] mb-4">
                   From Google Reviews
                 </p>
                 <h2
@@ -274,17 +274,17 @@ export default function TestimonialsPage() {
             {googleReviews.map((r, i) => (
               <ScrollReveal key={r.id} direction="up" delay={i * 0.1}>
                 <article
-                  className="group relative bg-white border border-[#E8DFC8] p-8 flex flex-col h-full hover:border-[#D6A33A] hover:shadow-lg transition-all duration-300"
+                  className="group relative bg-white border border-[#E8DFC8] p-8 flex flex-col h-full hover:border-[#F3BA2F] hover:shadow-lg transition-all duration-300"
                   aria-label={`Review by ${r.name}`}
                 >
                   {/* Top row */}
                   <header className="flex items-center gap-4 mb-6">
                     {/* Avatar */}
                     <div
-                      className="w-11 h-11 rounded-full bg-[#D6A33A]/15 border border-[#D6A33A]/30 flex items-center justify-center shrink-0"
+                      className="w-11 h-11 rounded-full bg-[#F3BA2F]/15 border border-[#F3BA2F]/30 flex items-center justify-center shrink-0"
                       aria-hidden="true"
                     >
-                      <span className="font-serif text-sm text-[#D6A33A]">{r.initials}</span>
+                      <span className="font-serif text-sm text-[#F3BA2F]">{r.initials}</span>
                     </div>
                     <div>
                       <p className="font-sans text-sm font-medium text-[#24211C]">{r.name}</p>
@@ -306,7 +306,7 @@ export default function TestimonialsPage() {
 
                   {/* Decorative quote */}
                   <span
-                    className="font-serif text-5xl leading-none text-[#D6A33A]/20 mb-2 block"
+                    className="font-serif text-5xl leading-none text-[#F3BA2F]/20 mb-2 block"
                     aria-hidden="true"
                   >
                     &ldquo;
@@ -319,7 +319,7 @@ export default function TestimonialsPage() {
 
                   {/* Bottom accent line animates on hover */}
                   <div
-                    className="mt-8 h-px bg-[#E8DFC8] group-hover:bg-[#D6A33A] transition-colors duration-300"
+                    className="mt-8 h-px bg-[#E8DFC8] group-hover:bg-[#F3BA2F] transition-colors duration-300"
                     aria-hidden="true"
                   />
                 </article>
@@ -336,7 +336,7 @@ export default function TestimonialsPage() {
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <ScrollReveal direction="up">
-            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#D6A33A] mb-4">
+            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#F3BA2F] mb-4">
               Recurring Themes
             </p>
             <h2
@@ -382,10 +382,10 @@ export default function TestimonialsPage() {
             ].map((item, i) => (
               <ScrollReveal key={item.id} direction="up" delay={i * 0.07}>
                 <div className="border-b sm:border-b-0 sm:border-r border-[#E8DFC8] last:border-r-0 pt-8 pr-0 sm:pr-10 pb-10">
-                  <span className="font-sans text-xs text-[#D6A33A] tracking-widest mb-4 block">
+                  <span className="font-sans text-xs text-[#F3BA2F] tracking-widest mb-4 block">
                     {item.id}
                   </span>
-                  <div className="w-8 h-px bg-[#D6A33A] mb-6" aria-hidden="true" />
+                  <div className="w-8 h-px bg-[#F3BA2F] mb-6" aria-hidden="true" />
                   <h3 className="font-serif text-xl lg:text-2xl text-[#24211C] mb-4">{item.title}</h3>
                   <p className="font-sans text-sm text-[#6D665A] leading-relaxed">{item.body}</p>
                 </div>
@@ -404,7 +404,7 @@ export default function TestimonialsPage() {
           <ScrollReveal direction="up">
             <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center">
               <div>
-                <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#D6A33A] mb-4">
+                <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#F3BA2F] mb-4">
                   Share Your Story
                 </p>
                 <h2
@@ -415,14 +415,14 @@ export default function TestimonialsPage() {
                 </h2>
                 <p className="font-sans text-sm text-[#6D665A] max-w-lg leading-relaxed">
                   Your experience matters to us and to future guests. If you&apos;ve stayed at
-                  Mother\u0026apos;s Ayurveda, we&apos;d love to hear your thoughts — good or honest.
+                  Mother\u0026apos;s Inn Homestay, we&apos;d love to hear your thoughts — good or honest.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/contact"
                   id="testimonials-cta-contact"
-                  className="inline-flex items-center gap-2 bg-[#D6A33A] text-[#24211C] font-sans text-xs tracking-[0.15em] uppercase px-8 py-4 hover:bg-[#B98424] transition-all duration-300 group"
+                  className="inline-flex items-center gap-2 bg-[#F3BA2F] text-[#24211C] font-sans text-xs tracking-[0.15em] uppercase px-8 py-4 hover:bg-[#D9A21B] transition-all duration-300 group"
                 >
                   Write to Us
                   <span
@@ -435,7 +435,7 @@ export default function TestimonialsPage() {
                 <Link
                   href="/booking"
                   id="testimonials-cta-book"
-                  className="inline-flex items-center gap-2 border border-[#D6A33A] text-[#24211C] font-sans text-xs tracking-[0.15em] uppercase px-8 py-4 hover:bg-[#D6A33A] transition-all duration-300"
+                  className="inline-flex items-center gap-2 border border-[#F3BA2F] text-[#24211C] font-sans text-xs tracking-[0.15em] uppercase px-8 py-4 hover:bg-[#F3BA2F] transition-all duration-300"
                 >
                   Book a Stay
                 </Link>

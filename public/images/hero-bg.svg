@@ -14,9 +14,9 @@
   <rect x="850" y="580" width="420" height="450" fill="#2E2316" rx="2"/>
   <rect x="1290" y="580" width="460" height="450" fill="#332718" rx="2"/>
   <!-- Gold accent line -->
-  <rect x="200" y="100" width="4" height="200" fill="#D6A33A"/>
+  <rect x="200" y="100" width="4" height="200" fill="#F3BA2F"/>
   <!-- Text overlay -->
-  <text x="960" y="520" font-family="Georgia, serif" font-size="72" fill="#D6A33A" text-anchor="middle" opacity="0.6">Mother's Homestay</text>
+  <text x="960" y="520" font-family="Georgia, serif" font-size="72" fill="#F3BA2F" text-anchor="middle" opacity="0.6">Mother's Inn Homestay</text>
   <text x="960" y="590" font-family="Arial, sans-serif" font-size="18" fill="#FFFDF7" text-anchor="middle" opacity="0.4" letter-spacing="8">KERALA · INDIA</text>
   <text x="960" y="640" font-family="Arial, sans-serif" font-size="12" fill="#8A7560" text-anchor="middle" opacity="0.5">Replace with your property photography</text>
 </svg>

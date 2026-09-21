@@ -15,7 +15,7 @@ export default function RoomsSection() {
         {/* Section header */}
         <div className="grid lg:grid-cols-[1fr_1fr] items-end gap-6 mb-14 lg:mb-20">
           <ScrollReveal direction="up">
-            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#D6A33A] mb-3">
+            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#F3BA2F] mb-3">
               Our Rooms
             </p>
             <h2
@@ -38,7 +38,7 @@ export default function RoomsSection() {
               <Link
                 href="/rooms"
                 id="rooms-section-view-all"
-                className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-[#24211C] border-b border-[#D6A33A] pb-0.5 hover:text-[#D6A33A] transition-colors duration-300 group"
+                className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-[#24211C] border-b border-[#F3BA2F] pb-0.5 hover:text-[#F3BA2F] transition-colors duration-300 group"
               >
                 View All Rooms
                 <span className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true">→</span>
@@ -62,7 +62,7 @@ export default function RoomsSection() {
             <Link
               href="/rooms"
               id="rooms-section-all-rooms-cta"
-              className="inline-flex items-center gap-2 border border-[#D6A33A] text-[#24211C] font-sans text-xs tracking-[0.15em] uppercase px-8 py-4 hover:bg-[#D6A33A] transition-all duration-300 group"
+              className="inline-flex items-center gap-2 border border-[#F3BA2F] text-[#24211C] font-sans text-xs tracking-[0.15em] uppercase px-8 py-4 hover:bg-[#F3BA2F] transition-all duration-300 group"
             >
               See All Room Options
               <span className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true">→</span>

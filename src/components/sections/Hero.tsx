@@ -32,7 +32,7 @@ export default function Hero() {
     <section
       ref={ref}
       className="relative h-[100svh] min-h-[600px] overflow-hidden"
-      aria-label="Hero — Mother's Ayurveda"
+      aria-label="Hero — Mother's Inn Homestay"
     >
       {/* Background image with parallax */}
       <motion.div
@@ -44,7 +44,7 @@ export default function Hero() {
       >
         <Image
           src="/images/amenities/2cb00dbe-9146-47a2-be7d-1c8a25e50835.jpg"
-          alt="Mother's Ayurveda — a warm and welcoming Kerala homestay"
+          alt="Mother's Inn Homestay — a warm and welcoming Kerala homestay"
           fill
           priority
           className="object-cover object-center"
@@ -69,9 +69,9 @@ export default function Hero() {
           {/* Eyebrow */}
           <motion.p
             variants={lineVariants}
-            className="font-sans text-[10px] tracking-[0.35em] uppercase text-[#D6A33A] mb-5"
+            className="font-sans text-[10px] tracking-[0.35em] uppercase text-[#F3BA2F] mb-5"
           >
-            Mother\u0026apos;s Ayurveda &nbsp;·&nbsp; Kerala, India
+            Mother\u0026apos;s Inn Homestay &nbsp;·&nbsp; Kerala, India
           </motion.p>
 
           {/* Main heading */}
@@ -84,7 +84,7 @@ export default function Hero() {
               <br />
               Feel at
               <br />
-              <span className="text-[#D6A33A]">Home.</span>
+              <span className="text-[#F3BA2F]">Home.</span>
             </motion.h1>
           </motion.div>
 
@@ -102,7 +102,7 @@ export default function Hero() {
             <Link
               href="/booking"
               id="hero-book-now"
-              className="inline-flex items-center gap-2 bg-[#D6A33A] text-[#24211C] font-sans text-xs tracking-[0.15em] uppercase px-8 py-4 hover:bg-[#B98424] transition-all duration-300 group"
+              className="inline-flex items-center gap-2 bg-[#F3BA2F] text-[#24211C] font-sans text-xs tracking-[0.15em] uppercase px-8 py-4 hover:bg-[#D9A21B] transition-all duration-300 group"
             >
               Book Your Stay
               <svg
@@ -117,7 +117,7 @@ export default function Hero() {
             <Link
               href="/rooms"
               id="hero-explore-rooms"
-              className="inline-flex items-center gap-2 border border-white/40 text-white font-sans text-xs tracking-[0.15em] uppercase px-8 py-4 hover:border-[#D6A33A] hover:text-[#D6A33A] transition-all duration-300"
+              className="inline-flex items-center gap-2 border border-white/40 text-white font-sans text-xs tracking-[0.15em] uppercase px-8 py-4 hover:border-[#F3BA2F] hover:text-[#F3BA2F] transition-all duration-300"
             >
               Explore Rooms
             </Link>
@@ -135,7 +135,7 @@ export default function Hero() {
       >
         <div className="w-px h-12 bg-white/30 relative overflow-hidden">
           <motion.div
-            className="absolute top-0 left-0 w-full bg-[#D6A33A]"
+            className="absolute top-0 left-0 w-full bg-[#F3BA2F]"
             animate={{ height: ["0%", "100%", "0%"], top: ["0%", "0%", "100%"] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
             style={{ height: "40%" }}

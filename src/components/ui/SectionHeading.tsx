@@ -17,7 +17,7 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   const textAlign = align === "center" ? "text-center" : "text-left";
   const titleColor = light ? "text-white" : "text-[#24211C]";
-  const eyebrowColor = light ? "text-[#D6A33A]" : "text-[#D6A33A]";
+  const eyebrowColor = light ? "text-[#F3BA2F]" : "text-[#F3BA2F]";
   const subtitleColor = light ? "text-white/70" : "text-[#6D665A]";
 
   return (

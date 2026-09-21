@@ -4,9 +4,9 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import { siteConfig } from "@/data/config";
 
 export const metadata: Metadata = {
-  title: "Plan Your Stay | Mother's Ayurveda Kerala",
+  title: "Plan Your Stay | Mother's Inn Homestay Kerala",
   description:
-    "Enquire about availability at Mother's Ayurveda. Fill in your details and we'll get back to you promptly via WhatsApp.",
+    "Enquire about availability at Mother's Inn Homestay. Fill in your details and we'll get back to you promptly via WhatsApp.",
   alternates: { canonical: "/booking" },
 };
 
@@ -26,7 +26,7 @@ export default async function BookingPage({ searchParams }: BookingPageProps) {
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <ScrollReveal direction="up">
-            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#D6A33A] mb-4">
+            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#F3BA2F] mb-4">
               Reservations
             </p>
             <h1 className="font-serif text-5xl lg:text-6xl xl:text-7xl leading-[1.05] text-[#24211C] mb-6">
@@ -58,24 +58,24 @@ export default async function BookingPage({ searchParams }: BookingPageProps) {
               <div className="space-y-8">
                 {/* Note */}
                 <div className="bg-[#F7F1E5] p-8">
-                  <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#D6A33A] mb-4">
+                  <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#F3BA2F] mb-4">
                     Good to Know
                   </p>
                   <ul className="space-y-3 font-sans text-sm text-[#6D665A] leading-relaxed">
                     <li className="flex items-start gap-2">
-                      <span className="text-[#D6A33A] mt-0.5" aria-hidden="true">·</span>
+                      <span className="text-[#F3BA2F] mt-0.5" aria-hidden="true">·</span>
                       This is an enquiry form, not a confirmed booking.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#D6A33A] mt-0.5" aria-hidden="true">·</span>
+                      <span className="text-[#F3BA2F] mt-0.5" aria-hidden="true">·</span>
                       We&apos;ll reply via WhatsApp to confirm availability.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#D6A33A] mt-0.5" aria-hidden="true">·</span>
+                      <span className="text-[#F3BA2F] mt-0.5" aria-hidden="true">·</span>
                       Responses are typically within a few hours.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#D6A33A] mt-0.5" aria-hidden="true">·</span>
+                      <span className="text-[#F3BA2F] mt-0.5" aria-hidden="true">·</span>
                       No payment is taken at this stage.
                     </li>
                   </ul>
@@ -83,16 +83,16 @@ export default async function BookingPage({ searchParams }: BookingPageProps) {
 
                 {/* Contact alternate */}
                 <div>
-                  <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#D6A33A] mb-4">
+                  <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#F3BA2F] mb-4">
                     Or Reach Out Directly
                   </p>
                   <div className="space-y-3">
                     <a
                       href={`tel:${siteConfig.phone}`}
-                      className="flex items-center gap-3 font-sans text-sm text-[#24211C] hover:text-[#D6A33A] transition-colors group"
+                      className="flex items-center gap-3 font-sans text-sm text-[#24211C] hover:text-[#F3BA2F] transition-colors group"
                     >
                       <span
-                        className="w-8 h-8 border border-[#E8DFC8] flex items-center justify-center shrink-0 group-hover:border-[#D6A33A] transition-colors"
+                        className="w-8 h-8 border border-[#E8DFC8] flex items-center justify-center shrink-0 group-hover:border-[#F3BA2F] transition-colors"
                         aria-hidden="true"
                       >
                         <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -120,10 +120,10 @@ export default async function BookingPage({ searchParams }: BookingPageProps) {
                     </a>
                     <a
                       href={`mailto:${siteConfig.email}`}
-                      className="flex items-center gap-3 font-sans text-sm text-[#24211C] hover:text-[#D6A33A] transition-colors group"
+                      className="flex items-center gap-3 font-sans text-sm text-[#24211C] hover:text-[#F3BA2F] transition-colors group"
                     >
                       <span
-                        className="w-8 h-8 border border-[#E8DFC8] flex items-center justify-center shrink-0 group-hover:border-[#D6A33A] transition-colors"
+                        className="w-8 h-8 border border-[#E8DFC8] flex items-center justify-center shrink-0 group-hover:border-[#F3BA2F] transition-colors"
                         aria-hidden="true"
                       >
                         <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

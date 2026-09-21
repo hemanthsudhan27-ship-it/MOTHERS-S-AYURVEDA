@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig, navLinks } from "@/data/config";
@@ -43,23 +44,35 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex flex-col leading-none group"
-            aria-label="Mother's Ayurveda — Home"
+            className="flex items-center gap-2.5 lg:gap-3 group"
+            aria-label="Mother's Inn Homestay — Home"
           >
-            <span
-              className={`font-serif text-xl lg:text-2xl tracking-tight transition-colors duration-500 ${
-                isTransparent ? "text-white" : "text-[#24211C]"
-              }`}
-            >
-              Mother&apos;s
-            </span>
-            <span
-              className={`font-sans text-[10px] lg:text-[11px] tracking-[0.2em] uppercase transition-colors duration-500 ${
-                isTransparent ? "text-white/70" : "text-[#6D665A]"
-              }`}
-            >
-              Ayurveda
-            </span>
+            <div className="relative w-7 h-9 lg:w-8 lg:h-11 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src="/images/logo.png"
+                alt="Mother's Inn Homestay Logo"
+                fill
+                sizes="40px"
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span
+                className={`font-serif text-xl lg:text-2xl tracking-tight transition-colors duration-500 ${
+                  isTransparent ? "text-white" : "text-[#24211C]"
+                }`}
+              >
+                Mother&apos;s Inn
+              </span>
+              <span
+                className={`font-sans text-[10px] lg:text-[11px] tracking-[0.2em] uppercase transition-colors duration-500 ${
+                  isTransparent ? "text-white/70" : "text-[#6D665A]"
+                }`}
+              >
+                Homestay
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -79,7 +92,7 @@ export default function Navbar() {
                 >
                   {link.label}
                   <span
-                    className={`absolute -bottom-0.5 left-0 h-px bg-[#D6A33A] transition-all duration-300 ${
+                    className={`absolute -bottom-0.5 left-0 h-px bg-[#F3BA2F] transition-all duration-300 ${
                       active ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
@@ -95,8 +108,8 @@ export default function Navbar() {
               id="nav-book-now"
               className={`hidden lg:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-sans tracking-[0.15em] uppercase transition-all duration-300 border ${
                 isTransparent
-                  ? "bg-[#D6A33A] border-[#D6A33A] text-[#24211C] hover:bg-[#B98424] hover:border-[#B98424]"
-                  : "bg-[#D6A33A] border-[#D6A33A] text-[#24211C] hover:bg-[#B98424] hover:border-[#B98424]"
+                  ? "bg-[#F3BA2F] border-[#F3BA2F] text-[#24211C] hover:bg-[#D9A21B] hover:border-[#D9A21B]"
+                  : "bg-[#F3BA2F] border-[#F3BA2F] text-[#24211C] hover:bg-[#D9A21B] hover:border-[#D9A21B]"
               }`}
             >
               Book Now

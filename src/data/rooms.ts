@@ -53,9 +53,9 @@ const rooms: Room[] = [
     ],
     price: "",
     featured: true,
-    seoTitle: "Classic Room | Mother's Ayurveda Kerala",
+    seoTitle: "Classic Room | Mother's Inn Homestay Kerala",
     seoDescription:
-      "Book our Classic Room at Mother's Ayurveda — a beautifully appointed space offering comfort, warmth and genuine Kerala hospitality.",
+      "Book our Classic Room at Mother's Inn Homestay — a beautifully appointed space offering comfort, warmth and genuine Kerala hospitality.",
   },
   {
     id: "02",
@@ -63,7 +63,7 @@ const rooms: Room[] = [
     name: "Standard Room",
     shortName: "Standard",
     description:
-      "The Standard Room is crafted for guests who want a comfortable, no-fuss stay with all the essentials taken care of. With a practical yet inviting layout, it provides everything you need for a relaxed stay. The interior is warm and welcoming, reflecting the genuine hospitality at the heart of Mother's Ayurveda.",
+      "The Standard Room is crafted for guests who want a comfortable, no-fuss stay with all the essentials taken care of. With a practical yet inviting layout, it provides everything you need for a relaxed stay. The interior is warm and welcoming, reflecting the genuine hospitality at the heart of Mother's Inn Homestay.",
     shortDescription:
       "A comfortable, well-equipped room with everything you need for a relaxed stay.",
     images: [
@@ -89,9 +89,9 @@ const rooms: Room[] = [
     ],
     price: "",
     featured: true,
-    seoTitle: "Standard Room | Mother's Ayurveda Kerala",
+    seoTitle: "Standard Room | Mother's Inn Homestay Kerala",
     seoDescription:
-      "Our Standard Room at Mother's Ayurveda offers comfortable, well-equipped accommodation — ideal for solo travellers and couples visiting Kerala.",
+      "Our Standard Room at Mother's Inn Homestay offers comfortable, well-equipped accommodation — ideal for solo travellers and couples visiting Kerala.",
   },
   {
     id: "03",
@@ -99,7 +99,7 @@ const rooms: Room[] = [
     name: "Budget Room",
     shortName: "Budget",
     description:
-      "The Budget Room is our most affordable offering — a clean, comfortable and cosy space that gives you everything you need without the frills. Perfect for budget-conscious travellers who still want to experience the warmth and hospitality of Mother's Ayurveda. Ideal for those who plan to spend most of their time exploring Kerala's beautiful landscapes.",
+      "The Budget Room is our most affordable offering — a clean, comfortable and cosy space that gives you everything you need without the frills. Perfect for budget-conscious travellers who still want to experience the warmth and hospitality of Mother's Inn Homestay. Ideal for those who plan to spend most of their time exploring Kerala's beautiful landscapes.",
     shortDescription:
       "Clean, comfortable and affordable — perfect for the independent traveller.",
     images: [
@@ -119,9 +119,9 @@ const rooms: Room[] = [
     ],
     price: "",
     featured: false,
-    seoTitle: "Budget Room | Mother's Ayurveda Kerala",
+    seoTitle: "Budget Room | Mother's Inn Homestay Kerala",
     seoDescription:
-      "Our Budget Room at Mother's Ayurveda is affordable, clean and comfortable — the ideal base for budget travellers exploring Kerala.",
+      "Our Budget Room at Mother's Inn Homestay is affordable, clean and comfortable — the ideal base for budget travellers exploring Kerala.",
   },
   {
     id: "04",
@@ -153,9 +153,9 @@ const rooms: Room[] = [
     ],
     price: "",
     featured: true,
-    seoTitle: "Dormitory | Mother's Ayurveda Kerala",
+    seoTitle: "Dormitory | Mother's Inn Homestay Kerala",
     seoDescription:
-      "Our Dormitory at Mother's Ayurveda is ideal for backpackers and solo travellers — affordable bunks with Wi-Fi, A/C and a great social atmosphere in Kerala.",
+      "Our Dormitory at Mother's Inn Homestay is ideal for backpackers and solo travellers — affordable bunks with Wi-Fi, A/C and a great social atmosphere in Kerala.",
   },
 ];
 

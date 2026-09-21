@@ -63,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               name: siteConfig.name,
               description: siteConfig.description,
               url: siteConfig.url,
+              logo: `${siteConfig.url}${siteConfig.logo}`,
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "Kerala",

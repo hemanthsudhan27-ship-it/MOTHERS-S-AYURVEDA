@@ -13,7 +13,7 @@ export default function LocationSection() {
           {/* Left — Text */}
           <ScrollReveal direction="left">
             <div>
-              <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#D6A33A] mb-3">
+              <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#F3BA2F] mb-3">
                 Location
               </p>
               <h2
@@ -25,18 +25,18 @@ export default function LocationSection() {
                 Way Home
               </h2>
               <p className="font-sans text-sm text-[#6D665A] leading-relaxed mb-6 max-w-sm">
-                Situated in the heart of Kerala, Mother\u0026apos;s Ayurveda is easily accessible and
+                Situated in the heart of Kerala, Mother\u0026apos;s Inn Homestay is easily accessible and
                 close to the region&apos;s most celebrated attractions.
               </p>
 
               {/* Address block */}
-              <div className="border-l-2 border-[#D6A33A] pl-5 mb-8">
+              <div className="border-l-2 border-[#F3BA2F] pl-5 mb-8">
                 <p className="font-sans text-sm text-[#24211C] leading-relaxed">
                   {siteConfig.address}
                 </p>
                 <a
                   href={`tel:${siteConfig.phone}`}
-                  className="font-sans text-sm text-[#6D665A] hover:text-[#D6A33A] transition-colors mt-1 block"
+                  className="font-sans text-sm text-[#6D665A] hover:text-[#F3BA2F] transition-colors mt-1 block"
                 >
                   {siteConfig.phone}
                 </a>
@@ -47,7 +47,7 @@ export default function LocationSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="location-get-directions"
-                className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-[#24211C] border border-[#D6A33A] px-6 py-3 hover:bg-[#D6A33A] transition-all duration-300 group"
+                className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-[#24211C] border border-[#F3BA2F] px-6 py-3 hover:bg-[#F3BA2F] transition-all duration-300 group"
               >
                 Get Directions
                 <span className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true">→</span>
@@ -65,12 +65,12 @@ export default function LocationSection() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Mother's Ayurveda location on Google Maps"
+                  title="Mother's Inn Homestay location on Google Maps"
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center h-full gap-4 text-center px-8">
                   <svg
-                    className="w-12 h-12 text-[#D6A33A]"
+                    className="w-12 h-12 text-[#F3BA2F]"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true"
@@ -84,7 +84,7 @@ export default function LocationSection() {
                     href={siteConfig.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-sans text-xs text-[#D6A33A] tracking-widest uppercase hover:underline"
+                    className="font-sans text-xs text-[#F3BA2F] tracking-widest uppercase hover:underline"
                   >
                     Open in Google Maps →
                   </a>

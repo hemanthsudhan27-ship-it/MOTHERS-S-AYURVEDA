@@ -26,11 +26,11 @@ export default function BookNowButton({
     "inline-flex items-center gap-2 font-sans tracking-[0.15em] uppercase transition-all duration-300 group";
 
   const variants = {
-    primary: "bg-[#D6A33A] text-[#24211C] hover:bg-[#B98424] border border-[#D6A33A] hover:border-[#B98424]",
+    primary: "bg-[#F3BA2F] text-[#24211C] hover:bg-[#D9A21B] border border-[#F3BA2F] hover:border-[#D9A21B]",
     outline:
-      "bg-transparent border border-[#D6A33A] text-[#D6A33A] hover:bg-[#D6A33A] hover:text-[#24211C]",
+      "bg-transparent border border-[#F3BA2F] text-[#F3BA2F] hover:bg-[#F3BA2F] hover:text-[#24211C]",
     ghost:
-      "bg-transparent border border-white/30 text-white hover:border-[#D6A33A] hover:text-[#D6A33A]",
+      "bg-transparent border border-white/30 text-white hover:border-[#F3BA2F] hover:text-[#F3BA2F]",
   };
 
   const sizes = {

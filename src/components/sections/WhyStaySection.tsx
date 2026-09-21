@@ -38,7 +38,7 @@ export default function WhyStaySection() {
         <ScrollReveal direction="up">
           <div className="grid lg:grid-cols-[1fr_1fr] items-end gap-6 mb-16 lg:mb-24">
             <div>
-              <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#D6A33A] mb-3">
+              <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#F3BA2F] mb-3">
                 Why Choose Us
               </p>
               <h2
@@ -64,11 +64,11 @@ export default function WhyStaySection() {
           {features.map((f, i) => (
             <ScrollReveal key={f.id} direction="up" delay={i * 0.08}>
               <div className="border-t border-white/10 pt-8 pr-0 sm:pr-8 pb-8">
-                <span className="font-sans text-xs text-[#D6A33A] tracking-widest mb-4 block">
+                <span className="font-sans text-xs text-[#F3BA2F] tracking-widest mb-4 block">
                   {f.id}
                 </span>
                 {/* Decorative line */}
-                <div className="w-8 h-px bg-[#D6A33A] mb-6" aria-hidden="true" />
+                <div className="w-8 h-px bg-[#F3BA2F] mb-6" aria-hidden="true" />
                 <h3 className="font-serif text-2xl lg:text-3xl text-white mb-4">{f.title}</h3>
                 <p className="font-sans text-sm text-white/50 leading-relaxed">{f.description}</p>
               </div>

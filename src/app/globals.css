@@ -42,7 +42,7 @@
 
   /* Focus styles */
   :focus-visible {
-    outline: 2px solid #d6a33a;
+    outline: 2px solid #f3ba2f;
     outline-offset: 2px;
   }
 
@@ -57,7 +57,7 @@
 
   /* Selection */
   ::selection {
-    background-color: #d6a33a33;
+    background-color: #f3ba2f33;
     color: #24211c;
   }
 
@@ -75,10 +75,10 @@
     background: #f7f1e5;
   }
   ::-webkit-scrollbar-thumb {
-    background: #d6a33a55;
+    background: #f3ba2f55;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #d6a33a99;
+    background: #f3ba2f99;
   }
 }

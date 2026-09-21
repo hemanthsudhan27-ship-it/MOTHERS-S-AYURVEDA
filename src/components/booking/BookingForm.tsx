@@ -79,15 +79,15 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
   const inputClass = (field: string) =>
     `w-full bg-transparent border-b ${
       errors[field] ? "border-red-400" : "border-[#E8DFC8]"
-    } py-3 font-sans text-sm text-[#24211C] placeholder-[#A09A8E] focus:outline-none focus:border-[#D6A33A] transition-colors duration-300`;
+    } py-3 font-sans text-sm text-[#24211C] placeholder-[#A09A8E] focus:outline-none focus:border-[#F3BA2F] transition-colors duration-300`;
 
   const labelClass = "block font-sans text-[10px] tracking-[0.2em] uppercase text-[#6D665A] mb-2";
 
   if (submitted) {
     return (
       <div className="text-center py-16">
-        <div className="w-14 h-14 rounded-full bg-[#D6A33A]/20 flex items-center justify-center mx-auto mb-6">
-          <svg className="w-6 h-6 text-[#D6A33A]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <div className="w-14 h-14 rounded-full bg-[#F3BA2F]/20 flex items-center justify-center mx-auto mb-6">
+          <svg className="w-6 h-6 text-[#F3BA2F]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
@@ -98,7 +98,7 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="mt-8 font-sans text-xs tracking-[0.15em] uppercase text-[#D6A33A] border-b border-[#D6A33A] pb-0.5 hover:text-[#B98424] transition-colors"
+          className="mt-8 font-sans text-xs tracking-[0.15em] uppercase text-[#F3BA2F] border-b border-[#F3BA2F] pb-0.5 hover:text-[#D9A21B] transition-colors"
         >
           Send Another Enquiry
         </button>
@@ -279,7 +279,7 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
         <button
           type="submit"
           id="booking-submit"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#D6A33A] text-[#24211C] font-sans text-xs tracking-[0.2em] uppercase px-10 py-4 hover:bg-[#B98424] transition-all duration-300 group"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#F3BA2F] text-[#24211C] font-sans text-xs tracking-[0.2em] uppercase px-10 py-4 hover:bg-[#D9A21B] transition-all duration-300 group"
         >
           <svg
             className="w-4 h-4"
