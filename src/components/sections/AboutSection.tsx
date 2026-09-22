@@ -80,7 +80,7 @@ export default function AboutSection() {
                 offering not just a comfortable room, but a real sense of belonging.
               </p>
               <p className="font-sans text-sm leading-relaxed text-[#6D665A] mb-10">
-                Every guest who walks through our doors is treated as family. That&apos;s the
+                Every guest who walks through our doors is treated as family. We are perfectly located just a 5-minute walk from the beach and other tourist attractions, making it the ideal base for your stay. That&apos;s the
                 tradition we&apos;ve carried, and it&apos;s the experience you&apos;ll take home
                 with you.
               </p>
