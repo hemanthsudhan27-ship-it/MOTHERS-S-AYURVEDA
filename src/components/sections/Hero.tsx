@@ -89,13 +89,22 @@ export default function Hero() {
           </motion.div>
 
           {/* Supporting text */}
-          <motion.p
+          <motion.div
             variants={lineVariants}
-            className="font-sans text-sm lg:text-base text-white/75 max-w-md leading-relaxed mb-8"
+            className="mb-8"
           >
-            Comfort, warmth and genuine hospitality,&nbsp;thoughtfully
-            brought together under one roof.
-          </motion.p>
+            <p className="font-sans text-sm lg:text-base text-white/75 max-w-md leading-relaxed mb-3">
+              Comfort, warmth and genuine hospitality,&nbsp;thoughtfully
+              brought together under one roof.
+            </p>
+            <p className="font-sans text-sm lg:text-base text-[#F3BA2F] font-medium tracking-wide flex items-center gap-2">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              Just a 5-minute walk to the beach & attractions
+            </p>
+          </motion.div>
 
           {/* CTA Row */}
           <motion.div variants={lineVariants} className="flex flex-wrap items-center gap-4">
