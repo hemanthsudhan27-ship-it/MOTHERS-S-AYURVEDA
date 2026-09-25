@@ -75,7 +75,7 @@ export default function AboutSection() {
           <ScrollReveal direction="right" delay={0.15}>
             <div className="pt-0 lg:pt-8">
               <p className="font-sans text-sm lg:text-base leading-relaxed text-[#6D665A] mb-6">
-                Mother\u0026apos;s Inn Homestay was born from a simple idea: that genuine hospitality begins
+                Mother's Inn Homestay was born from a simple idea: that genuine hospitality begins
                 at home. Our family has welcomed guests from across India and around the world,
                 offering not just a comfortable room, but a real sense of belonging.
               </p>

@@ -50,7 +50,7 @@ export default function WelcomeSection() {
           <ScrollReveal direction="right" delay={0.15}>
             <div className="flex flex-col gap-6 order-3">
               <p className="font-sans text-sm lg:text-base leading-relaxed text-[#6D665A]">
-                Nestled in the heart of Kerala, Mother\u0026apos;s Inn Homestay offers a rare kind of
+                Nestled in the heart of Kerala, Mother's Inn Homestay offers a rare kind of
                 hospitality — one that feels personal, unhurried and genuinely warm. Every corner of
                 this home has been thoughtfully curated to help you rest, recharge and reconnect.
               </p>

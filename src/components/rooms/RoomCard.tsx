@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Room } from "@/data/rooms";
 
+import EnquireNowButton from "@/components/ui/EnquireNowButton";
+
 interface RoomCardProps {
   room: Room;
 }
@@ -82,11 +84,12 @@ export default function RoomCard({ room }: RoomCardProps) {
         </div>
 
         {/* CTA */}
-        <div className="mt-5">
+        <div className="mt-5 flex items-center gap-3 relative z-20">
           <span className="inline-flex items-center gap-2 border border-[#E8DFC8] text-[#24211C] font-sans text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 group-hover:border-[#F3BA2F] group-hover:bg-[#F3BA2F] transition-all duration-300">
             View Details
             <span className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true">→</span>
           </span>
+          <EnquireNowButton roomName={room.name} variant="outline" className="text-[10px]" />
         </div>
       </div>
     </Link>

@@ -71,7 +71,10 @@ export default function Hero() {
             variants={lineVariants}
             className="font-sans text-[10px] tracking-[0.35em] uppercase text-[#F3BA2F] mb-5"
           >
-            Mother\u0026apos;s Inn Homestay &nbsp;·&nbsp; Kerala, India
+            Mother'
+            
+            
+            s Inn Homestay &nbsp;·&nbsp; Kerala, India
           </motion.p>
 
           {/* Main heading */}

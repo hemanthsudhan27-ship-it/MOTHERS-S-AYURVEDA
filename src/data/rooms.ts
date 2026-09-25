@@ -39,7 +39,7 @@ const rooms: Room[] = [
       "/images/rooms/classic/5c0f9797-33e5-4d23-8290-d5f4c726744a.jpg",
       "/images/rooms/classic/e5c495ca-fadd-4ab3-b59c-71ea35dd21b2.jpg",
     ],
-    capacity: 2,
+    capacity: 4,
     bedType: "Double Bed",
     roomSize: "~180 sq ft",
     amenities: [
@@ -139,7 +139,7 @@ const rooms: Room[] = [
       "/images/rooms/dorm/dorm4.jpg",
       "/images/rooms/dorm/dorm5.jpeg",
     ],
-    capacity: 6,
+    capacity: 16,
     bedType: "Bunk Beds",
     roomSize: "Shared — ~400 sq ft",
     amenities: [

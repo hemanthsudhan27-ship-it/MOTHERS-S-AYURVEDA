@@ -5,6 +5,7 @@ import Link from "next/link";
 import rooms, { getRoomBySlug } from "@/data/rooms";
 import RoomGallery from "@/components/rooms/RoomGallery";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import EnquireNowButton from "@/components/ui/EnquireNowButton";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import FinalCTA from "@/components/sections/FinalCTA";
 
@@ -81,10 +82,11 @@ export default async function RoomPage({ params }: RoomPageProps) {
             </ScrollReveal>
             <ScrollReveal direction="right" delay={0.1}>
               <div className="lg:text-right flex lg:flex-col lg:items-end gap-4">
-                <WhatsAppButton
+                <EnquireNowButton
                   roomName={room.name}
                   label={`Enquire About This Room`}
                   id={`room-${room.slug}-enquire-hero`}
+                  className="px-6 py-3"
                 />
                 <Link
                   href={`/booking?room=${encodeURIComponent(room.name)}`}
@@ -163,7 +165,7 @@ export default async function RoomPage({ params }: RoomPageProps) {
                     </div>
                   )}
                 </dl>
-                <WhatsAppButton
+                <EnquireNowButton
                   roomName={room.name}
                   label="Enquire About This Room"
                   id={`room-${room.slug}-enquire-details`}
@@ -241,10 +243,11 @@ export default async function RoomPage({ params }: RoomPageProps) {
                 </p>
               </div>
               <div className="flex flex-wrap gap-4 shrink-0">
-                <WhatsAppButton
+                <EnquireNowButton
                   roomName={room.name}
                   label="Enquire About This Room"
                   id={`room-${room.slug}-enquire-bottom`}
+                  className="border-white/30 text-white hover:border-[#F3BA2F] hover:text-[#24211C]"
                 />
                 <Link
                   href={`/booking?room=${encodeURIComponent(room.name)}`}

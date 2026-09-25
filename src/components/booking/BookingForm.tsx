@@ -47,7 +47,14 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
     if (form.checkin && form.checkout && form.checkout <= form.checkin) {
       newErrors.checkout = "Check-out must be after check-in.";
     }
-    if (!form.guests || parseInt(form.guests) < 1) newErrors.guests = "Please enter guest count.";
+    if (!form.guests || parseInt(form.guests) < 1) {
+      newErrors.guests = "Please enter guest count.";
+    } else if (form.room) {
+      const selectedRoomData = rooms.find((r) => r.name === form.room);
+      if (selectedRoomData && parseInt(form.guests) > selectedRoomData.capacity) {
+        newErrors.guests = `Max capacity for ${selectedRoomData.name} is ${selectedRoomData.capacity} guests.`;
+      }
+    }
     if (!form.room) newErrors.room = "Please select a room.";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -214,7 +221,7 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
             name="guests"
             value={form.guests}
             min={1}
-            max={10}
+            max={form.room ? rooms.find((r) => r.name === form.room)?.capacity || 16 : 16}
             onChange={handleChange}
             className={inputClass("guests")}
             aria-required="true"
@@ -246,7 +253,7 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
             </option>
             {rooms.map((r) => (
               <option key={r.id} value={r.name}>
-                {r.name}
+                {r.name} (Max {r.capacity} Guests)
               </option>
             ))}
           </select>
