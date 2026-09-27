@@ -84,6 +84,7 @@ export default async function RoomPage({ params }: RoomPageProps) {
               <div className="lg:text-right flex lg:flex-col lg:items-end gap-4">
                 <EnquireNowButton
                   roomName={room.name}
+                  capacity={room.capacity}
                   label={`Enquire About This Room`}
                   id={`room-${room.slug}-enquire-hero`}
                   className="px-6 py-3"
@@ -167,6 +168,7 @@ export default async function RoomPage({ params }: RoomPageProps) {
                 </dl>
                 <EnquireNowButton
                   roomName={room.name}
+                  capacity={room.capacity}
                   label="Enquire About This Room"
                   id={`room-${room.slug}-enquire-details`}
                   className="w-full justify-center"
@@ -245,6 +247,7 @@ export default async function RoomPage({ params }: RoomPageProps) {
               <div className="flex flex-wrap gap-4 shrink-0">
                 <EnquireNowButton
                   roomName={room.name}
+                  capacity={room.capacity}
                   label="Enquire About This Room"
                   id={`room-${room.slug}-enquire-bottom`}
                   className="border-white/30 text-white hover:border-[#F3BA2F] hover:text-[#24211C]"

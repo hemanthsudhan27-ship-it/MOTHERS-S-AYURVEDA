@@ -89,7 +89,7 @@ export default function RoomCard({ room }: RoomCardProps) {
             View Details
             <span className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true">→</span>
           </span>
-          <EnquireNowButton roomName={room.name} variant="outline" className="text-[10px]" />
+          <EnquireNowButton roomName={room.name} capacity={room.capacity} variant="outline" className="text-[10px]" />
         </div>
       </div>
     </Link>

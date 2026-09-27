@@ -2,31 +2,63 @@
 
 import { useState } from "react";
 import { siteConfig } from "@/data/config";
+import rooms from "@/data/rooms";
 
 interface EnquireNowButtonProps {
   roomName: string;
+  capacity?: number;
   className?: string;
   variant?: "primary" | "outline";
   id?: string;
   label?: string;
 }
 
-export default function EnquireNowButton({ roomName, className = "", variant = "primary", id, label }: EnquireNowButtonProps) {
+export default function EnquireNowButton({
+  roomName,
+  capacity,
+  className = "",
+  variant = "primary",
+  id,
+  label,
+}: EnquireNowButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [form, setForm] = useState({
     name: "",
     phone: "",
     checkin: "",
+    guests: "2",
   });
-  const [errors, setErrors] = useState<{ name?: string; phone?: string; checkin?: string }>({});
+  const [errors, setErrors] = useState<{
+    name?: string;
+    phone?: string;
+    checkin?: string;
+    guests?: string;
+  }>({});
+
+  const roomData = rooms.find(
+    (r) =>
+      r.name.toLowerCase() === roomName.toLowerCase() ||
+      r.slug === roomName.toLowerCase()
+  );
+  const maxCapacity = capacity || roomData?.capacity || 16;
 
   const today = new Date().toISOString().split("T")[0];
 
   const validate = () => {
-    const newErrors: any = {};
+    const newErrors: {
+      name?: string;
+      phone?: string;
+      checkin?: string;
+      guests?: string;
+    } = {};
     if (!form.name.trim()) newErrors.name = "Required";
     if (!form.phone.trim()) newErrors.phone = "Required";
     if (!form.checkin) newErrors.checkin = "Required";
+    if (!form.guests || parseInt(form.guests, 10) < 1) {
+      newErrors.guests = "Required";
+    } else if (maxCapacity && parseInt(form.guests, 10) > maxCapacity) {
+      newErrors.guests = `Max ${maxCapacity} guests`;
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -34,7 +66,7 @@ export default function EnquireNowButton({ roomName, className = "", variant = "
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    
+
     const message = `Hello Mother's Inn Homestay,
 
 I am interested in the *${roomName}*.
@@ -42,6 +74,7 @@ I am interested in the *${roomName}*.
 *Name:* ${form.name}
 *Phone:* ${form.phone}
 *Check-in:* ${form.checkin}
+*Guests:* ${form.guests}
 
 Is this available at the moment?`;
 
@@ -51,10 +84,13 @@ Is this available at the moment?`;
     setIsOpen(false);
   };
 
-  const baseBtnClass = "inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase transition-all duration-300 px-5 py-2.5";
+  const baseBtnClass =
+    "inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase transition-all duration-300 px-5 py-2.5";
   const variants = {
-    primary: "bg-[#F3BA2F] text-[#24211C] hover:bg-[#D9A21B] border border-[#F3BA2F]",
-    outline: "border border-[#E8DFC8] text-[#24211C] hover:border-[#F3BA2F] hover:bg-[#F3BA2F]",
+    primary:
+      "bg-[#F3BA2F] text-[#24211C] hover:bg-[#D9A21B] border border-[#F3BA2F]",
+    outline:
+      "border border-[#E8DFC8] text-[#24211C] hover:border-[#F3BA2F] hover:bg-[#F3BA2F]",
   };
 
   return (
@@ -73,81 +109,158 @@ Is this available at the moment?`;
       </button>
 
       {isOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           onClick={(e) => {
             e.stopPropagation();
             setIsOpen(false);
           }}
         >
-          <div 
+          <div
             className="bg-[#FFFDF7] w-full max-w-md p-8 relative shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
+            <button
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 text-[#6D665A] hover:text-[#24211C] transition-colors"
               aria-label="Close modal"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </button>
-            
+
             <h3 className="font-serif text-2xl text-[#24211C] mb-2">Enquire Now</h3>
             <p className="font-sans text-sm text-[#6D665A] mb-6">
               Check availability for <strong>{roomName}</strong>.
             </p>
-            
+
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="enq-name" className="block font-sans text-[10px] tracking-[0.2em] uppercase text-[#6D665A] mb-2">
+                <label
+                  htmlFor="enq-name"
+                  className="block font-sans text-[10px] tracking-[0.2em] uppercase text-[#6D665A] mb-2"
+                >
                   Name *
                 </label>
                 <input
                   id="enq-name"
                   type="text"
+                  placeholder="Your full name"
                   value={form.name}
                   onChange={(e) => {
                     setForm({ ...form, name: e.target.value });
                     if (errors.name) setErrors({ ...errors, name: undefined });
                   }}
-                  className={`w-full bg-transparent border-b ${errors.name ? "border-red-400" : "border-[#E8DFC8]"} py-2 font-sans text-sm focus:outline-none focus:border-[#F3BA2F]`}
+                  className={`w-full h-10 bg-transparent border-b ${
+                    errors.name ? "border-red-400" : "border-[#E8DFC8]"
+                  } py-2 font-sans text-sm focus:outline-none focus:border-[#F3BA2F] transition-colors`}
                 />
+                {errors.name && (
+                  <p className="mt-1 font-sans text-[11px] text-red-500">
+                    {errors.name}
+                  </p>
+                )}
               </div>
-              
+
               <div>
-                <label htmlFor="enq-phone" className="block font-sans text-[10px] tracking-[0.2em] uppercase text-[#6D665A] mb-2">
+                <label
+                  htmlFor="enq-phone"
+                  className="block font-sans text-[10px] tracking-[0.2em] uppercase text-[#6D665A] mb-2"
+                >
                   Phone Number *
                 </label>
                 <input
                   id="enq-phone"
                   type="tel"
+                  placeholder="+91 00000 00000"
                   value={form.phone}
                   onChange={(e) => {
                     setForm({ ...form, phone: e.target.value });
                     if (errors.phone) setErrors({ ...errors, phone: undefined });
                   }}
-                  className={`w-full bg-transparent border-b ${errors.phone ? "border-red-400" : "border-[#E8DFC8]"} py-2 font-sans text-sm focus:outline-none focus:border-[#F3BA2F]`}
+                  className={`w-full h-10 bg-transparent border-b ${
+                    errors.phone ? "border-red-400" : "border-[#E8DFC8]"
+                  } py-2 font-sans text-sm focus:outline-none focus:border-[#F3BA2F] transition-colors`}
                 />
+                {errors.phone && (
+                  <p className="mt-1 font-sans text-[11px] text-red-500">
+                    {errors.phone}
+                  </p>
+                )}
               </div>
 
-              <div>
-                <label htmlFor="enq-checkin" className="block font-sans text-[10px] tracking-[0.2em] uppercase text-[#6D665A] mb-2">
-                  Check-in Date *
-                </label>
-                <input
-                  id="enq-checkin"
-                  type="date"
-                  min={today}
-                  value={form.checkin}
-                  onChange={(e) => {
-                    setForm({ ...form, checkin: e.target.value });
-                    if (errors.checkin) setErrors({ ...errors, checkin: undefined });
-                  }}
-                  className={`w-full bg-transparent border-b ${errors.checkin ? "border-red-400" : "border-[#E8DFC8]"} py-2 font-sans text-sm focus:outline-none focus:border-[#F3BA2F]`}
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
+                <div>
+                  <label
+                    htmlFor="enq-checkin"
+                    className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#6D665A] mb-2 sm:h-7 flex items-end"
+                  >
+                    Check-in Date *
+                  </label>
+                  <input
+                    id="enq-checkin"
+                    type="date"
+                    min={today}
+                    value={form.checkin}
+                    onChange={(e) => {
+                      setForm({ ...form, checkin: e.target.value });
+                      if (errors.checkin)
+                        setErrors({ ...errors, checkin: undefined });
+                    }}
+                    className={`w-full h-10 bg-transparent border-b ${
+                      errors.checkin ? "border-red-400" : "border-[#E8DFC8]"
+                    } py-2 font-sans text-sm focus:outline-none focus:border-[#F3BA2F] transition-colors`}
+                  />
+                  {errors.checkin && (
+                    <p className="mt-1 font-sans text-[11px] text-red-500">
+                      {errors.checkin}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="enq-guests"
+                    className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#6D665A] mb-2 sm:h-7 flex items-end justify-between"
+                  >
+                    <span>Guests *</span>
+                    {maxCapacity ? (
+                      <span className="text-[#A09A8E] normal-case tracking-normal text-[10px]">
+                        (Max {maxCapacity})
+                      </span>
+                    ) : null}
+                  </label>
+                  <input
+                    id="enq-guests"
+                    type="number"
+                    min={1}
+                    max={maxCapacity}
+                    value={form.guests}
+                    onChange={(e) => {
+                      setForm({ ...form, guests: e.target.value });
+                      if (errors.guests)
+                        setErrors({ ...errors, guests: undefined });
+                    }}
+                    className={`w-full h-10 bg-transparent border-b ${
+                      errors.guests ? "border-red-400" : "border-[#E8DFC8]"
+                    } py-2 font-sans text-sm focus:outline-none focus:border-[#F3BA2F] transition-colors`}
+                  />
+                  {errors.guests && (
+                    <p className="mt-1 font-sans text-[11px] text-red-500">
+                      {errors.guests}
+                    </p>
+                  )}
+                </div>
               </div>
 
               <div className="pt-4">
