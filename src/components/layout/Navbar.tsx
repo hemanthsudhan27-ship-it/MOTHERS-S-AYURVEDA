@@ -76,14 +76,14 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7" aria-label="Main navigation">
             {navLinks.map((link) => {
               const active = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative font-sans text-sm tracking-[0.12em] uppercase transition-colors duration-300 group ${
+                  className={`relative font-sans text-xs xl:text-sm tracking-[0.1em] xl:tracking-[0.12em] uppercase transition-colors duration-300 group ${
                     isTransparent
                       ? "text-white/90 hover:text-white"
                       : "text-[#6D665A] hover:text-[#24211C]"

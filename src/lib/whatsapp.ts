@@ -62,3 +62,25 @@ Thank you.`;
   const url = `https://wa.me/${siteConfig.whatsappNumber}?text=${encoded}`;
   window.open(url, "_blank", "noopener,noreferrer");
 }
+
+/**
+ * Generates a pre-filled WhatsApp enquiry for Mother's Ayurveda resort treatments/packages.
+ */
+export function enquireAboutAyurveda(treatmentOrPackage?: string): void {
+  const message = `Hello Mother's Ayurveda Resort,
+
+I am interested in learning more about your Ayurvedic wellness treatments${
+    treatmentOrPackage ? ` (*${treatmentOrPackage}*)` : ""
+  }.
+
+Could you please share details on:
+• Available treatment packages (Panchakarma, Uzhichil, Yoga retreats)
+• Physician consultation & personalized schedules
+• Accommodation & package rates
+
+Thank you!`;
+
+  const encoded = encodeURIComponent(message);
+  const url = `https://wa.me/${siteConfig.whatsappNumber}?text=${encoded}`;
+  window.open(url, "_blank", "noopener,noreferrer");
+}

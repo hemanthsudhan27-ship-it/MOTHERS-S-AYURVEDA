@@ -23,6 +23,7 @@ export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Rooms", href: "/rooms" },
+  { label: "Mother's Ayurveda", href: "/ayurveda" },
   { label: "Reviews", href: "/testimonials" },
   { label: "Contact", href: "/contact" },
 ];
