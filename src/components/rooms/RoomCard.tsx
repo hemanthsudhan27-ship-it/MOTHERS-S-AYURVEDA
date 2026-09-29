@@ -1,97 +1,168 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Room } from "@/data/rooms";
-
-import EnquireNowButton from "@/components/ui/EnquireNowButton";
+import { useConcierge } from "@/context/ConciergeContext";
+import { SunIcon, MoonIcon, BedIcon, UsersIcon, CheckIcon } from "@/components/ui/Icons";
 
 interface RoomCardProps {
   room: Room;
 }
 
 export default function RoomCard({ room }: RoomCardProps) {
+  const { openConcierge } = useConcierge();
+  // Ambiance mode toggle: "day" uses primary image, "evening" uses alternative image if available
+  const [ambiance, setAmbiance] = useState<"day" | "evening">("day");
+
+  const currentImage = ambiance === "day"
+    ? (room.images[0] || "/images/placeholder-room.svg")
+    : (room.images[1] || room.images[0] || "/images/placeholder-room.svg");
+
   return (
-    <Link
-      href={`/rooms/${room.slug}`}
+    <div
       id={`room-card-${room.slug}`}
-      className="group block overflow-hidden"
-      aria-label={`View ${room.name} details`}
+      className="group bg-white rounded-2xl border border-[#E8DFC8]/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-[#F3BA2F]/60 transition-all duration-300 flex flex-col justify-between"
     >
-      {/* Image container */}
-      <div className="relative aspect-[4/5] overflow-hidden bg-[#E8DFC8]">
+      {/* Top Image Showcase */}
+      <div className="relative aspect-[4/3] overflow-hidden bg-[#F7F1E5]">
         <motion.div
+          key={ambiance}
+          initial={{ opacity: 0.8, scale: 1.02 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
           className="absolute inset-0"
-          whileHover={{ scale: 1.04 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <Image
-            src={room.images[0] || "/images/placeholder-room.svg"}
-            alt={`${room.name} at Mother's Inn Homestay`}
+            src={currentImage}
+            alt={`${room.name} at Mother's Inn Homestay Kerala`}
             fill
-            className="object-cover object-center"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
-          {/* Hover overlay */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-all duration-500" />
         </motion.div>
 
-        {/* Room number badge */}
-        <div className="absolute top-4 left-4 z-10">
-          <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-white/80 bg-black/30 backdrop-blur-sm px-2 py-1">
-            {room.id}
-          </span>
-        </div>
+        {/* Gradient shadow overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15 pointer-events-none" />
 
-        {/* Yellow accent on hover */}
-        <div className="absolute bottom-0 left-0 w-0 group-hover:w-8 h-px bg-[#F3BA2F] transition-all duration-500" aria-hidden="true" />
-      </div>
-
-      {/* Card footer */}
-      <div className="pt-4 pb-2">
-        <div className="flex flex-col gap-4">
-          <div>
-            <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#F3BA2F] mb-1">
-              {room.id}
-            </p>
-            <h3 className="font-serif text-xl lg:text-2xl text-[#24211C] group-hover:text-[#D9A21B] transition-colors duration-300">
-              {room.name}
-            </h3>
-            <p className="font-sans text-xs text-[#6D665A] mt-1 leading-relaxed line-clamp-2">
-              {room.shortDescription}
-            </p>
-          </div>
-        </div>
-
-        {/* Meta row */}
-        <div className="flex items-center gap-4 mt-3 pt-3 border-t border-[#E8DFC8]">
-          <span className="font-sans text-[10px] text-[#6D665A] tracking-wide">
-            {room.capacity} Guest{room.capacity > 1 ? "s" : ""}
+        {/* Top Badges */}
+        <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+          <span className="font-sans text-[10px] uppercase tracking-[0.2em] font-bold text-[#8C5F05] bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border border-[#F3BA2F]/40 shadow-sm">
+            Suite {room.id}
           </span>
-          <span className="w-1 h-1 rounded-full bg-[#F3BA2F]" aria-hidden="true" />
-          <span className="font-sans text-[10px] text-[#6D665A] tracking-wide">
-            {room.bedType}
-          </span>
-          {room.roomSize && (
-            <>
-              <span className="w-1 h-1 rounded-full bg-[#F3BA2F]" aria-hidden="true" />
-              <span className="font-sans text-[10px] text-[#6D665A] tracking-wide">
-                {room.roomSize}
-              </span>
-            </>
+
+          {/* Daylight vs Evening Ambiance Switch */}
+          {room.images.length > 1 && (
+            <div className="flex items-center gap-1 bg-black/45 backdrop-blur-md rounded-full p-1 border border-white/20">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setAmbiance("day");
+                }}
+                title="Daylight view"
+                className={`text-[10px] px-2.5 py-0.5 rounded-full transition-all flex items-center gap-1 ${
+                  ambiance === "day"
+                    ? "bg-[#F3BA2F] text-[#24211C] font-bold shadow-xs"
+                    : "text-white/70 hover:text-white"
+                }`}
+              >
+                <SunIcon className="w-3 h-3 text-current" />
+                <span>Day</span>
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setAmbiance("evening");
+                }}
+                title="Cozy evening ambiance"
+                className={`text-[10px] px-2.5 py-0.5 rounded-full transition-all flex items-center gap-1 ${
+                  ambiance === "evening"
+                    ? "bg-[#F3BA2F] text-[#24211C] font-bold shadow-xs"
+                    : "text-white/70 hover:text-white"
+                }`}
+              >
+                <MoonIcon className="w-3 h-3 text-current" />
+                <span>Eve</span>
+              </button>
+            </div>
           )}
         </div>
 
-        {/* CTA */}
-        <div className="mt-5 flex items-center gap-3 relative z-20">
-          <span className="inline-flex items-center gap-2 border border-[#E8DFC8] text-[#24211C] font-sans text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 group-hover:border-[#F3BA2F] group-hover:bg-[#F3BA2F] transition-all duration-300">
-            View Details
-            <span className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true">→</span>
+        {/* Bottom image overlay specs */}
+        <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between text-white text-xs font-sans">
+          <span className="bg-black/45 backdrop-blur-sm px-3 py-1 rounded-md flex items-center gap-1.5 border border-white/10">
+            <BedIcon className="w-3.5 h-3.5 text-[#F3BA2F]" />
+            <span>{room.bedType}</span>
           </span>
-          <EnquireNowButton roomName={room.name} capacity={room.capacity} variant="outline" className="text-[10px]" />
+          <span className="bg-black/45 backdrop-blur-sm px-3 py-1 rounded-md flex items-center gap-1.5 border border-white/10">
+            <UsersIcon className="w-3.5 h-3.5 text-[#F3BA2F]" />
+            <span>Up to {room.capacity} Guests</span>
+          </span>
         </div>
       </div>
-    </Link>
+
+      {/* Card Body */}
+      <div className="p-6 flex-1 flex flex-col justify-between">
+        <div>
+          <div className="flex items-start justify-between gap-3 mb-2">
+            <h3 className="font-serif text-2xl text-[#24211C] group-hover:text-[#D99E10] transition-colors">
+              <Link href={`/rooms/${room.slug}`}>
+                {room.name}
+              </Link>
+            </h3>
+            {room.roomSize && (
+              <span className="font-sans text-[11px] text-[#6D665A] bg-[#FAF6EE] px-2 py-1 rounded border border-[#E8DFC8]">
+                {room.roomSize}
+              </span>
+            )}
+          </div>
+
+          <p className="font-sans text-xs sm:text-sm text-[#6D665A] leading-relaxed mb-4 line-clamp-2">
+            {room.description}
+          </p>
+
+          {/* Key Amenities Pills */}
+          <div className="flex flex-wrap gap-1.5 mb-6">
+            {room.amenities.slice(0, 3).map((amenity) => (
+              <span
+                key={amenity}
+                className="text-[10px] font-sans px-2.5 py-1 rounded-full bg-[#FAF6EE] text-[#6D665A] border border-[#E8DFC8] flex items-center gap-1"
+              >
+                <CheckIcon className="w-3 h-3 text-[#D99E10]" />
+                <span>{amenity}</span>
+              </span>
+            ))}
+            {room.amenities.length > 3 && (
+              <span className="text-[10px] font-sans px-2 py-1 text-[#8C5F05] font-semibold">
+                +{room.amenities.length - 3} more
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* CTA Buttons in Yellow & White */}
+        <div className="pt-4 border-t border-[#F0EAE1] flex items-center gap-3">
+          <button
+            onClick={() => openConcierge({ tab: "room", room: room.name, lockRoom: true })}
+            className="flex-1 py-2.5 px-4 rounded-lg gold-shimmer-btn text-[#24211C] font-sans text-xs uppercase tracking-[0.14em] font-bold text-center cursor-pointer shadow-sm"
+          >
+            Reserve Suite
+          </button>
+
+          <Link
+            href={`/rooms/${room.slug}`}
+            className="py-2.5 px-4 rounded-lg border border-[#E8DFC8] bg-white text-[#24211C] font-sans text-xs uppercase tracking-[0.12em] font-medium hover:border-[#F3BA2F] hover:text-[#D99E10] transition-all text-center"
+          >
+            Details →
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -1,26 +1,42 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig, navLinks } from "@/data/config";
+import { useConcierge } from "@/context/ConciergeContext";
+import { StarIcon } from "@/components/ui/Icons";
 
 const footerRooms = [
-  { label: "Deluxe Room", href: "/rooms/deluxe-room" },
-  { label: "Family Room", href: "/rooms/family-room" },
-  { label: "Premium Room", href: "/rooms/premium-room" },
-  { label: "Couple Room", href: "/rooms/couple-room" },
+  { label: "Classic Room (Private Balcony)", href: "/rooms/classic-room" },
+  { label: "Standard Room (Queen Bed)", href: "/rooms/standard-room" },
+  { label: "Budget Room (Twin Comfort)", href: "/rooms/budget-room" },
+  { label: "Dormitory (Social Backpacker Bunks)", href: "/rooms/dormitory" },
+];
+
+const ayurvedaLinks = [
+  { label: "Shirodhara Third-Eye Therapy", href: "/ayurveda" },
+  { label: "Panchakarma Detox Programs", href: "/ayurveda" },
+  { label: "Classical Uzhichil Oil Massage", href: "/ayurveda" },
+  { label: "Kizhi Herbal Bolus Therapy", href: "/ayurveda" },
+  { label: "Prasava Raksha Postnatal Care", href: "/ayurveda" },
 ];
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { openConcierge } = useConcierge();
 
   return (
-    <footer className="bg-[#24211C] text-[#C8BFB0]" aria-label="Site footer">
-      {/* Main Footer */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-16 pb-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_auto_auto_auto] gap-10 lg:gap-16">
-          {/* Brand */}
-          <div className="max-w-xs">
-            <Link href="/" className="block mb-4 group" aria-label="Mother's Inn Homestay — Home">
-              <div className="flex items-center gap-4">
+    <footer className="bg-[#1C1917] text-[#C8BFB0] border-t border-[#F3BA2F]/30" aria-label="Site footer">
+      {/* Top Gold Hairline */}
+      <div className="h-1 w-full gold-gradient-bg" />
+
+      {/* Main Footer Content */}
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 pt-18 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-white/10">
+          {/* Col 1: Brand & Heritage */}
+          <div className="lg:col-span-4">
+            <Link href="/" className="inline-block mb-6 group" aria-label="Mother's Inn Homestay & Ayurveda — Home">
+              <div className="flex items-center gap-3.5">
                 <div className="relative w-9 h-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                   <Image
                     src="/images/logo.png"
@@ -31,115 +47,116 @@ export default function Footer() {
                   />
                 </div>
                 <div className="flex flex-col leading-none">
-                  <span className="font-serif text-3xl lg:text-4xl text-white tracking-tight">
+                  <span className="font-serif text-2xl lg:text-3xl text-white tracking-tight">
                     Mother&apos;s Inn
                   </span>
-                  <span className="font-serif text-3xl lg:text-4xl text-[#F3BA2F] tracking-tight -mt-1">
-                    Homestay
+                  <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#F3BA2F] font-semibold mt-1">
+                    Homestay & Ayurveda
                   </span>
                 </div>
               </div>
             </Link>
-            <p className="font-sans text-sm leading-relaxed text-[#8A8070] mb-6">
-              &ldquo;Stay. Feel at home.&rdquo;
+
+            <p className="font-sans text-sm leading-relaxed text-[#9E9585] mb-6 max-w-sm font-light">
+              A sun-drenched sanctuary in Fort Kochi, Kerala. Genuine homestay warmth and time-honored Ayurvedic healing, 5 minutes from the Arabian Sea.
             </p>
-            <p className="font-sans text-xs leading-relaxed text-[#6D665A]">
-              {siteConfig.address}
-            </p>
-            {/* Social Links */}
-            <div className="flex items-center gap-4 mt-6">
-              <a
-                href={siteConfig.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Mother's Inn Homestay on Instagram"
-                className="text-[#6D665A] hover:text-[#F3BA2F] transition-colors duration-300"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-              </a>
+
+            {/* Google Reviews Trust Seal */}
+            <div className="p-4 rounded-xl bg-white/5 border border-white/10 max-w-xs flex items-center gap-3.5 mb-6">
+              <div className="w-10 h-10 rounded-full bg-[#F3BA2F] text-[#24211C] flex items-center justify-center flex-shrink-0">
+                <StarIcon className="w-5 h-5 text-[#24211C]" />
+              </div>
+              <div>
+                <p className="text-white text-xs font-semibold">
+                  4.9 / 5.0 Rating
+                </p>
+                <p className="text-[11px] text-[#9E9585]">
+                  Rated by global travelers in Fort Kochi
+                </p>
+              </div>
+            </div>
+
+            {/* Social & Contact */}
+            <div className="flex items-center gap-4 text-xs font-sans">
               <a
                 href={`https://wa.me/${siteConfig.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Chat with Mother's Inn Homestay on WhatsApp"
-                className="text-[#6D665A] hover:text-[#F3BA2F] transition-colors duration-300"
+                className="flex items-center gap-2 text-[#F3BA2F] hover:underline"
               >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-              </a>
-              <a
-                href={siteConfig.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Mother's Inn Homestay on Google Maps"
-                className="text-[#6D665A] hover:text-[#F3BA2F] transition-colors duration-300"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 0C8.21 0 5.1 3.11 5.1 6.9c0 5.18 6.9 17.1 6.9 17.1s6.9-11.92 6.9-17.1C18.9 3.11 15.79 0 12 0zm0 9.3c-1.32 0-2.4-1.08-2.4-2.4s1.08-2.4 2.4-2.4 2.4 1.08 2.4 2.4-1.08 2.4-2.4 2.4z" />
-                </svg>
+                <span>WhatsApp Concierge →</span>
               </a>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#F3BA2F] mb-5">
-              Navigate
+          {/* Col 2: Accommodations */}
+          <div className="lg:col-span-3">
+            <h3 className="font-sans text-[11px] tracking-[0.22em] uppercase text-[#F3BA2F] font-bold mb-5">
+              Suites & Rooms
             </h3>
-            <ul className="space-y-3">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="font-sans text-sm text-[#8A8070] hover:text-white transition-colors duration-300"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/booking"
-                  className="font-sans text-sm text-[#8A8070] hover:text-white transition-colors duration-300"
-                >
-                  Booking
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Rooms */}
-          <div>
-            <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#F3BA2F] mb-5">
-              Rooms
-            </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 font-sans text-xs">
               {footerRooms.map((room) => (
-                <li key={room.href}>
+                <li key={room.label}>
                   <Link
                     href={room.href}
-                    className="font-sans text-sm text-[#8A8070] hover:text-white transition-colors duration-300"
+                    className="text-[#9E9585] hover:text-white transition-colors duration-200 block"
                   >
                     {room.label}
                   </Link>
                 </li>
               ))}
+              <li className="pt-2">
+                <button
+                  onClick={() => openConcierge({ tab: "room" })}
+                  className="text-[#F3BA2F] font-semibold hover:underline cursor-pointer"
+                >
+                  Check Live Availability →
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#F3BA2F] mb-5">
-              Contact
+          {/* Col 3: Ayurveda Therapies */}
+          <div className="lg:col-span-3">
+            <h3 className="font-sans text-[11px] tracking-[0.22em] uppercase text-[#F3BA2F] font-bold mb-5">
+              Mother&apos;s Ayurveda
             </h3>
-            <ul className="space-y-3 text-sm font-sans text-[#8A8070]">
+            <ul className="space-y-3 font-sans text-xs">
+              {ayurvedaLinks.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-[#9E9585] hover:text-white transition-colors duration-200 block"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="pt-2">
+                <button
+                  onClick={() => openConcierge({ tab: "ayurveda" })}
+                  className="text-[#F3BA2F] font-semibold hover:underline cursor-pointer"
+                >
+                  Doctor Consultation →
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Visit & Location */}
+          <div className="lg:col-span-2">
+            <h3 className="font-sans text-[11px] tracking-[0.22em] uppercase text-[#F3BA2F] font-bold mb-5">
+              Contact & Visit
+            </h3>
+            <ul className="space-y-3 font-sans text-xs text-[#9E9585]">
+              <li>
+                <span className="block text-white font-medium mb-0.5">Location:</span>
+                {siteConfig.location}
+              </li>
               <li>
                 <a
                   href={`tel:${siteConfig.phone}`}
-                  className="hover:text-white transition-colors duration-300"
+                  className="hover:text-white transition-colors block text-white font-medium"
                 >
                   {siteConfig.phone}
                 </a>
@@ -147,39 +164,43 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="hover:text-white transition-colors duration-300"
+                  className="hover:text-white transition-colors block"
                 >
                   {siteConfig.email}
                 </a>
               </li>
-              <li>
-                <Link href="/booking" className="hover:text-white transition-colors duration-300">
-                  Make an Enquiry
-                </Link>
+              <li className="pt-2">
+                <a
+                  href={siteConfig.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#F3BA2F] hover:underline block"
+                >
+                  Get Directions on Maps →
+                </a>
               </li>
             </ul>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10 max-w-[1400px] mx-auto px-6 lg:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="font-sans text-xs text-[#4A4438]">
-          &copy; {year} Mother\u0026apos;s Inn Homestay. All rights reserved.
-        </p>
-        <div className="flex items-center gap-6">
-          <Link
-            href="/privacy"
-            className="font-sans text-xs text-[#4A4438] hover:text-[#8A8070] transition-colors duration-300"
-          >
-            Privacy Policy
-          </Link>
-          <Link
-            href="/terms"
-            className="font-sans text-xs text-[#4A4438] hover:text-[#8A8070] transition-colors duration-300"
-          >
-            Terms
-          </Link>
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-sans text-[#7A7162]">
+          <p>
+            &copy; {year} Mother&apos;s Inn Homestay & Mother&apos;s Ayurveda. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <span>•</span>
+            <Link href="/terms" className="hover:text-white transition-colors">
+              Terms of Stay
+            </Link>
+            <span>•</span>
+            <Link href="/contact" className="hover:text-white transition-colors">
+              Contact Concierge
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

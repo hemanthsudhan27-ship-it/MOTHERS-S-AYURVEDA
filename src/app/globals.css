@@ -3,6 +3,14 @@
 @theme {
   --font-serif: var(--font-serif), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+  --color-gold-50: #FFFBF0;
+  --color-gold-100: #FDF4D7;
+  --color-gold-200: #FAE6A5;
+  --color-gold-300: #F6D46C;
+  --color-gold-400: #F3BA2F;
+  --color-gold-500: #D99E10;
+  --color-gold-600: #B57F08;
+  --color-gold-700: #8C5F05;
 }
 
 @layer base {
@@ -19,12 +27,11 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: #fffdf7;
-    color: #24211c;
+    background-color: #FFFDF7;
+    color: #24211C;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    /* Prevent content from pushing outside the viewport on iOS */
     position: relative;
   }
 
@@ -42,7 +49,7 @@
 
   /* Focus styles */
   :focus-visible {
-    outline: 2px solid #f3ba2f;
+    outline: 2px solid #F3BA2F;
     outline-offset: 2px;
   }
 
@@ -57,28 +64,114 @@
 
   /* Selection */
   ::selection {
-    background-color: #f3ba2f33;
-    color: #24211c;
+    background-color: #F3BA2F40;
+    color: #1F1D19;
   }
 
   /* Input/date picker dark calendar fix */
   input[type="date"]::-webkit-calendar-picker-indicator {
-    opacity: 0.4;
+    opacity: 0.55;
     cursor: pointer;
+    filter: invert(0.6) sepia(1) saturate(5) hue-rotate(5deg);
   }
 
-  /* Scrollbar */
+  /* Custom Luxury Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #f7f1e5;
+    background: #FFFDF7;
   }
   ::-webkit-scrollbar-thumb {
-    background: #f3ba2f55;
-    border-radius: 3px;
+    background: #F3BA2F77;
+    border-radius: 9999px;
+    border: 1px solid #FFFDF7;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #f3ba2f99;
+    background: #D99E10;
   }
+}
+
+/* Luxury UI Utilities */
+.glass-luxury-white {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(243, 186, 47, 0.22);
+  box-shadow: 0 12px 36px -4px rgba(243, 186, 47, 0.09), 0 4px 16px -2px rgba(36, 33, 28, 0.04);
+}
+
+.glass-luxury-gold {
+  background: linear-gradient(135deg, rgba(255, 251, 240, 0.92) 0%, rgba(253, 244, 215, 0.75) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(243, 186, 47, 0.35);
+  box-shadow: 0 14px 40px -6px rgba(243, 186, 47, 0.14);
+}
+
+.gold-hairline {
+  position: relative;
+}
+.gold-hairline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(243, 186, 47, 0.45) 20%, rgba(243, 186, 47, 0.8) 50%, rgba(243, 186, 47, 0.45) 80%, transparent);
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #F3BA2F 0%, #D99E10 100%);
+}
+
+.gold-shimmer-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #F3BA2F 0%, #D99E10 100%);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gold-shimmer-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: none;
+}
+.gold-shimmer-btn:hover::before {
+  left: 200%;
+  transition: left 0.85s ease-in-out;
+}
+.gold-shimmer-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px -4px rgba(243, 186, 47, 0.45);
+}
+
+.gold-pill-tag {
+  background: rgba(243, 186, 47, 0.12);
+  border: 1px solid rgba(243, 186, 47, 0.35);
+  color: #8C5F05;
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(243, 186, 47, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(243, 186, 47, 0);
+  }
+}
+
+.pulse-gold {
+  animation: pulseGoldGlow 2.5s infinite;
 }

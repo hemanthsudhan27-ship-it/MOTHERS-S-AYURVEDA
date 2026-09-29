@@ -2,6 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import FinalCTA from "@/components/sections/FinalCTA";
+import {
+  LeafIcon,
+  BedIcon,
+  BreakfastIcon,
+  HeartHandshakeIcon,
+  HomeCareIcon,
+  SparkleIcon,
+} from "@/components/ui/Icons";
 
 export const metadata: Metadata = {
   title: "Guest Reviews | Mother's Inn Homestay Kerala",
@@ -12,12 +20,12 @@ export const metadata: Metadata = {
 
 // ─── Highlight chips extracted from visitor feedback ──────────────────────────
 const highlights = [
-  { emoji: "🌿", label: "Beautiful Garden" },
-  { emoji: "🛏️", label: "Clean & Comfortable Rooms" },
-  { emoji: "🍳", label: "Delicious Homemade Breakfast" },
-  { emoji: "🤝", label: "Friendly, Welcoming Staff" },
-  { emoji: "🏡", label: "Peaceful, Homely Atmosphere" },
-  { emoji: "✨", label: "Basic Amenities" },
+  { icon: LeafIcon, label: "Beautiful Garden" },
+  { icon: BedIcon, label: "Clean & Comfortable Rooms" },
+  { icon: BreakfastIcon, label: "Delicious Homemade Breakfast" },
+  { icon: HeartHandshakeIcon, label: "Friendly, Welcoming Staff" },
+  { icon: HomeCareIcon, label: "Peaceful, Homely Atmosphere" },
+  { icon: SparkleIcon, label: "Thoughtful Amenities" },
 ];
 
 // ─── Rating bar data ───────────────────────────────────────────────────────────
@@ -36,7 +44,7 @@ const googleReviews = [
     initials: "TT",
     stars: 5,
     review:
-      "We had a wonderful stay at Fort Kochi's Mother's Inn Homestay. The place has such a warm, homely atmosphere that we truly felt like we were staying at our own home. The owner was very welcoming and kind, and the ambience was peaceful and comfortable. Overall, it was a lovely experience and we would definitely recommend this place to anyone looking for a cozy and homely stay in Fort Kochi. ❤️",
+      "We had a wonderful stay at Fort Kochi's Mother's Inn Homestay. The place has such a warm, homely atmosphere that we truly felt like we were staying at our own home. The owner was very welcoming and kind, and the ambience was peaceful and comfortable. Overall, it was a lovely experience and we would definitely recommend this place to anyone looking for a cozy and homely stay in Fort Kochi.",
   },
   {
     id: "akash",
@@ -160,15 +168,18 @@ export default function TestimonialsPage() {
                     Frequently Mentioned
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {highlights.map((h) => (
-                      <span
-                        key={h.label}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full font-sans text-xs text-white/70"
-                      >
-                        <span aria-hidden="true">{h.emoji}</span>
-                        {h.label}
-                      </span>
-                    ))}
+                    {highlights.map((h) => {
+                      const IconComp = h.icon;
+                      return (
+                        <span
+                          key={h.label}
+                          className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full font-sans text-xs text-white/80"
+                        >
+                          <IconComp className="w-3.5 h-3.5 text-[#F3BA2F]" />
+                          <span>{h.label}</span>
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

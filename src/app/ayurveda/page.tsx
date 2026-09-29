@@ -674,7 +674,9 @@ export default function AyurvedaPage() {
                       <ul className="space-y-2">
                         {pkg.includes.map((inc) => (
                           <li key={inc} className={`flex items-start gap-2.5 text-xs ${pkg.featured ? "text-white/80" : "text-[#6D665A]"}`}>
-                            <span className="text-[#F3BA2F] font-bold">✓</span>
+                            <svg className="w-3.5 h-3.5 text-[#F3BA2F] shrink-0 mt-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <path d="M3 8.5l3.5 3.5 6.5-7" />
+                            </svg>
                             <span>{inc}</span>
                           </li>
                         ))}

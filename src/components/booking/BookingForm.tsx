@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { generateWhatsAppMessage } from "@/lib/whatsapp";
 import rooms from "@/data/rooms";
+import { CheckIcon } from "@/components/ui/Icons";
 
 interface BookingFormProps {
   preselectedRoom?: string;
@@ -23,13 +25,21 @@ interface FormErrors {
 }
 
 export default function BookingForm({ preselectedRoom }: BookingFormProps) {
+  const matchedRoom = preselectedRoom
+    ? rooms.find(
+        (r) =>
+          r.name.toLowerCase() === preselectedRoom.toLowerCase() ||
+          r.slug.toLowerCase() === preselectedRoom.toLowerCase()
+      )
+    : undefined;
+
   const [form, setForm] = useState<FormState>({
     name: "",
     phone: "",
     checkin: "",
     checkout: "",
     guests: "2",
-    room: preselectedRoom || "",
+    room: matchedRoom ? matchedRoom.name : (preselectedRoom || ""),
     message: "",
   });
 
@@ -84,42 +94,45 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
   };
 
   const inputClass = (field: string) =>
-    `w-full bg-transparent border-b ${
+    `w-full bg-white border ${
       errors[field] ? "border-red-400" : "border-[#E8DFC8]"
-    } py-3 font-sans text-sm text-[#24211C] placeholder-[#A09A8E] focus:outline-none focus:border-[#F3BA2F] transition-colors duration-300`;
+    } px-4 py-3 rounded-lg font-sans text-sm text-[#24211C] placeholder-[#A09A8E] focus:outline-none focus:border-[#F3BA2F] focus:ring-1 focus:ring-[#F3BA2F] transition-all duration-200`;
 
-  const labelClass = "block font-sans text-[10px] tracking-[0.2em] uppercase text-[#6D665A] mb-2";
+  const labelClass = "block font-sans text-xs tracking-wider uppercase text-[#24211C] font-semibold mb-2";
 
   if (submitted) {
     return (
-      <div className="text-center py-16">
+      <div className="text-center py-16 bg-white rounded-2xl border border-[#E8DFC8] p-8 shadow-sm">
         <div className="w-14 h-14 rounded-full bg-[#F3BA2F]/20 flex items-center justify-center mx-auto mb-6">
-          <svg className="w-6 h-6 text-[#F3BA2F]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <CheckIcon className="w-7 h-7 text-[#D99E10]" />
         </div>
-        <h3 className="font-serif text-2xl text-[#24211C] mb-3">Enquiry Sent!</h3>
-        <p className="font-sans text-sm text-[#6D665A] max-w-sm mx-auto leading-relaxed">
-          Your WhatsApp message has been prepared. If it didn&apos;t open automatically, please
-          check your browser&apos;s popup settings.
+        <h3 className="font-serif text-3xl text-[#24211C] mb-3">Enquiry Ready</h3>
+        <p className="font-sans text-sm text-[#6D665A] max-w-md mx-auto mb-6">
+          Your WhatsApp enquiry has been generated with your details. Our host team will verify availability for {form.room} and reply promptly.
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="mt-8 font-sans text-xs tracking-[0.15em] uppercase text-[#F3BA2F] border-b border-[#F3BA2F] pb-0.5 hover:text-[#D9A21B] transition-colors"
+          className="px-6 py-3 border border-[#E8DFC8] text-xs font-sans uppercase tracking-widest text-[#24211C] hover:border-[#F3BA2F] rounded-lg transition-colors cursor-pointer"
         >
-          Send Another Enquiry
+          Submit Another Request
         </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate aria-label="Room booking enquiry form">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      data-lenis-prevent="true"
+      aria-label="Room booking enquiry form"
+      className="bg-white rounded-2xl border border-[#E8DFC8]/80 p-6 sm:p-10 shadow-sm"
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {/* Full Name */}
         <div>
           <label htmlFor="booking-name" className={labelClass}>
-            Full Name <span aria-hidden="true">*</span>
+            Full Name <span className="text-[#D99E10]">*</span>
           </label>
           <input
             id="booking-name"
@@ -127,7 +140,7 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
             name="name"
             value={form.name}
             onChange={handleChange}
-            placeholder="Your name"
+            placeholder="e.g. Maya Sharma"
             autoComplete="name"
             className={inputClass("name")}
             aria-required="true"
@@ -143,7 +156,7 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
         {/* Phone */}
         <div>
           <label htmlFor="booking-phone" className={labelClass}>
-            Phone Number <span aria-hidden="true">*</span>
+            Mobile Number <span className="text-[#D99E10]">*</span>
           </label>
           <input
             id="booking-phone"
@@ -151,7 +164,7 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
             name="phone"
             value={form.phone}
             onChange={handleChange}
-            placeholder="+91 00000 00000"
+            placeholder="e.g. +91 98765 43210"
             autoComplete="tel"
             className={inputClass("phone")}
             aria-required="true"
@@ -167,7 +180,7 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
         {/* Check-in */}
         <div>
           <label htmlFor="booking-checkin" className={labelClass}>
-            Check-in Date <span aria-hidden="true">*</span>
+            Check-in Date <span className="text-[#D99E10]">*</span>
           </label>
           <input
             id="booking-checkin"
@@ -190,7 +203,7 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
         {/* Check-out */}
         <div>
           <label htmlFor="booking-checkout" className={labelClass}>
-            Check-out Date <span aria-hidden="true">*</span>
+            Check-out Date <span className="text-[#D99E10]">*</span>
           </label>
           <input
             id="booking-checkout"
@@ -213,7 +226,7 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
         {/* Guests */}
         <div>
           <label htmlFor="booking-guests" className={labelClass}>
-            Number of Guests <span aria-hidden="true">*</span>
+            Number of Guests <span className="text-[#D99E10]">*</span>
           </label>
           <input
             id="booking-guests"
@@ -221,7 +234,7 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
             name="guests"
             value={form.guests}
             min={1}
-            max={form.room ? rooms.find((r) => r.name === form.room)?.capacity || 16 : 16}
+            max={matchedRoom ? matchedRoom.capacity : 16}
             onChange={handleChange}
             className={inputClass("guests")}
             aria-required="true"
@@ -234,40 +247,76 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
           )}
         </div>
 
-        {/* Room */}
+        {/* Room Selection */}
         <div>
-          <label htmlFor="booking-room" className={labelClass}>
-            Room Category <span aria-hidden="true">*</span>
+          <label className={labelClass}>
+            Room Category <span className="text-[#D99E10]">*</span>
           </label>
-          <select
-            id="booking-room"
-            name="room"
-            value={form.room}
-            onChange={handleChange}
-            className={`${inputClass("room")} appearance-none cursor-pointer`}
-            aria-required="true"
-            aria-describedby={errors.room ? "booking-room-error" : undefined}
-          >
-            <option value="" disabled>
-              Select a room
-            </option>
-            {rooms.map((r) => (
-              <option key={r.id} value={r.name}>
-                {r.name} (Max {r.capacity} Guests)
-              </option>
-            ))}
-          </select>
-          {errors.room && (
-            <p id="booking-room-error" role="alert" className="mt-1.5 font-sans text-xs text-red-500">
-              {errors.room}
-            </p>
+
+          {matchedRoom ? (
+            /* Dedicated mode for this specific room ONLY */
+            <div className="p-3.5 rounded-lg bg-[#FAF6EE] border-2 border-[#F3BA2F] shadow-xs flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="relative w-12 h-12 rounded overflow-hidden shrink-0 border border-[#E8DFC8] bg-[#E8DFC8]">
+                  {matchedRoom.images[0] && (
+                    <Image
+                      src={matchedRoom.images[0]}
+                      alt={matchedRoom.name}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                </div>
+                <div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-serif text-base font-bold text-[#24211C]">
+                      {matchedRoom.name}
+                    </span>
+                    <span className="text-[9px] font-sans px-2 py-0.5 rounded bg-[#F3BA2F] text-[#24211C] font-bold">
+                      Suite {matchedRoom.id}
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#6D665A]">
+                    {matchedRoom.bedType} · Up to {matchedRoom.capacity} Guests
+                  </p>
+                </div>
+              </div>
+              <input type="hidden" name="room" value={matchedRoom.name} />
+            </div>
+          ) : (
+            /* General selection mode if not from a specific room */
+            <div>
+              <select
+                id="booking-room"
+                name="room"
+                value={form.room}
+                onChange={handleChange}
+                className={`${inputClass("room")} appearance-none cursor-pointer bg-white`}
+                aria-required="true"
+                aria-describedby={errors.room ? "booking-room-error" : undefined}
+              >
+                <option value="" disabled>
+                  Select a room
+                </option>
+                {rooms.map((r) => (
+                  <option key={r.id} value={r.name}>
+                    {r.name} (Max {r.capacity} Guests)
+                  </option>
+                ))}
+              </select>
+              {errors.room && (
+                <p id="booking-room-error" role="alert" className="mt-1.5 font-sans text-xs text-red-500">
+                  {errors.room}
+                </p>
+              )}
+            </div>
           )}
         </div>
 
         {/* Message */}
         <div className="sm:col-span-2">
           <label htmlFor="booking-message" className={labelClass}>
-            Special Requests or Message
+            Special Requests or Notes (Optional)
           </label>
           <textarea
             id="booking-message"
@@ -275,18 +324,18 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
             value={form.message}
             onChange={handleChange}
             rows={3}
-            placeholder="Any special requirements, dietary needs, arrival time, etc."
+            placeholder="Any special requirements, dietary preferences, arrival time, or Ayurveda interest..."
             className={`${inputClass("message")} resize-none`}
           />
         </div>
       </div>
 
-      {/* Submit */}
-      <div className="mt-10">
+      {/* Submit Button */}
+      <div className="mt-8 pt-6 border-t border-[#F0EAE1] flex flex-col sm:flex-row items-center justify-between gap-4">
         <button
           type="submit"
           id="booking-submit"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#F3BA2F] text-[#24211C] font-sans text-xs tracking-[0.2em] uppercase px-10 py-4 hover:bg-[#D9A21B] transition-all duration-300 group"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 gold-shimmer-btn text-[#24211C] font-sans text-xs tracking-[0.16em] uppercase font-bold px-8 py-4 rounded-lg shadow-md shadow-[#F3BA2F]/20 cursor-pointer"
         >
           <svg
             className="w-4 h-4"
@@ -296,11 +345,10 @@ export default function BookingForm({ preselectedRoom }: BookingFormProps) {
           >
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
           </svg>
-          Check Availability via WhatsApp
+          Send Enquiry via WhatsApp
         </button>
-        <p className="mt-4 font-sans text-xs text-[#A09A8E] leading-relaxed max-w-sm">
-          This will open WhatsApp with your enquiry pre-filled. Our team will respond to confirm
-          availability and details.
+        <p className="font-sans text-xs text-[#6D665A] leading-relaxed">
+          Direct connection with Mother&apos;s Inn host team. No advance payment required.
         </p>
       </div>
     </form>

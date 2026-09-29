@@ -5,6 +5,9 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import LenisProvider from "@/components/LenisProvider";
 import { siteConfig } from "@/data/config";
+import { ConciergeProvider } from "@/context/ConciergeContext";
+import ConciergeDrawer from "@/components/concierge/ConciergeDrawer";
+import FloatingConciergeDock from "@/components/ui/FloatingConciergeDock";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -22,24 +25,24 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Comfortable Stay in Kerala`,
+    default: `${siteConfig.name} | Boutique Homestay & Ayurveda in Fort Kochi`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["homestay", "Kerala", "India", "bed and breakfast", "accommodation", "travel"],
+  keywords: ["homestay", "Kerala", "Fort Kochi", "Ayurveda", "bed and breakfast", "accommodation", "wellness retreat"],
   authors: [{ name: siteConfig.name }],
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} | Comfortable Stay in Kerala`,
+    title: `${siteConfig.name} | Boutique Homestay & Ayurveda in Fort Kochi`,
     description: siteConfig.description,
     images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Comfortable Stay in Kerala`,
+    title: `${siteConfig.name} | Boutique Homestay & Ayurveda in Fort Kochi`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
@@ -78,12 +81,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="bg-[#FFFDF7] text-[#24211C] antialiased">
-        <LenisProvider>
-          <Navbar />
-          <main id="main-content">{children}</main>
-          <Footer />
-        </LenisProvider>
+      <body className="bg-[#FFFDF7] text-[#24211C] antialiased selection:bg-[#F3BA2F]/30 selection:text-[#24211C]">
+        <ConciergeProvider>
+          <LenisProvider>
+            <Navbar />
+            <main id="main-content">{children}</main>
+            <Footer />
+            <ConciergeDrawer />
+            <FloatingConciergeDock />
+          </LenisProvider>
+        </ConciergeProvider>
       </body>
     </html>
   );
